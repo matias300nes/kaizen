@@ -32,6 +32,12 @@ window.onload = () => {
     Room = "Main";
     dingSound = document.getElementById("Ding");
     messages =  document.getElementById("MessagesContainer")
+    
+    function sendForm(event) {
+        event.preventDefault();
+    }
+    
+    document.getElementById("form-msg").addEventListener('submit', sendForm);
 
     document.getElementById("btnSendMessage").addEventListener('click',Send)
 
@@ -39,6 +45,7 @@ window.onload = () => {
         console.log("user joined")
         /* chatRoom.innerHTML = "Chatroom : " + room; */
     })
+
 
     socket.on("recieve", function(response){
         var current = new Date();
