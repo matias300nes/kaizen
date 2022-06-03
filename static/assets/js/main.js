@@ -21,7 +21,7 @@
       ],
     },
     {
-      nombre: "rodrigo",
+      nombre: "rodri",
       horarios: [
         { dia: "lunes", horario: [{ entrada: "8:30", salida: "17:30" }] },
         { dia: "martes", horario: [{ entrada: "8:30", salida: "17:30" }] },
