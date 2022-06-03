@@ -11,7 +11,6 @@ function Connect(){
 }
 
 function Send(){
-    console.log("sEEENnndd")
     if (delay && messageInput.value.replace(/\s/g, "") != ""){
         delay = false;
         setTimeout(delayReset, 1000);
@@ -25,12 +24,11 @@ function delayReset(){
 }
 
 window.onload = () => {
-    console.log("onload")
     socket = io();
     messageInput = document.getElementById("ComposedMessage");
     currentUser = JSON.parse(localStorage.getItem('user'));
     Room = "Main";
-    dingSound = document.getElementById("Ding");
+    dingSound = document.getElementById("AudioPlayer");
     messages =  document.getElementById("MessagesContainer")
     
     function sendForm(event) {
