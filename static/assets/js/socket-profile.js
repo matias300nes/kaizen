@@ -50,7 +50,9 @@ window.onload = () => {
     socket.on("recieve", function(response){
         var current = new Date();
         var time = `${current.getHours()}:${current.getMinutes()}`;
-        document.getElementById("noHayMensajes").remove();
+        if(document.getElementById("noHayMensajes")){
+            document.getElementById("noHayMensajes").remove();
+        }
         var child = document.createElement('li');
         child.innerHTML = `
             <div class="avatar me-3">
