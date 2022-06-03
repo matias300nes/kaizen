@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="assets/img/apple-icon.png"
+    />
+    <title>Horarios - Kaizen</title>
+    <!--     Fonts and icons     -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+    <!-- Nucleo Icons -->
+    <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/5170e9f285.js" crossorigin="anonymous"></script>
+    <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link
+      id="pagestyle"
+      href="assets/css/soft-ui-dashboard.css?v=1.0.5"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="g-sidenav-show bg-gray-100">
+    <main
+      class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
+    >
+      <div class="container-fluid py-4">
+        <div class="row">
+          <div class="col-xl-12 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p
+                        class="text-md mb-0 text-capitalize font-weight-bold"
+                        id="nombreDia"
+                      >
+                        Hoy es
+                      </p>
+                      <h4
+                        class="font-weight-bolder mb-0"
+                        id="MyClockDisplay"
+                      ></h4>
+                    </div>
+                  </div>
+                  <div class="col-4 text-end">
+                    <img src="/assets/img/logo.png" class="logo">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-9 mb-lg-0 mb-4">
+            <div class="card h-100 mb-4">
+              <div class="card-header pb-0">
+                <div class="row">
+                  <div class="col-8">
+                    <h5>Horarios del dia</h5>
+                  </div>
+                  <div class="col-4 text-end">
+                    <button
+                        class="btn bg-gradient-primary"
+                        type="button"
+                        id="sortearLavaplatos"
+                      >
+                        Sortear quien lava los platos
+                        <i class="fa-solid fa-shuffle ms-2"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body ps-0 pt-0 pb-2">
+                <div class="p-0">
+                  <table class="table align-items-center table-borderless mb-0">
+                    <thead>
+                      <tr>
+                        <th
+                          class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7"
+                        >
+                          Chimango
+                        </th>
+                        <th class="hour-cell text-xs">08:00</th>
+                        <th class="hour-cell text-xs">09:00</th>
+                        <th class="hour-cell text-xs">10:00</th>
+                        <th class="hour-cell text-xs">11:00</th>
+                        <th class="hour-cell text-xs">12:00</th>
+                        <th class="hour-cell text-xs">13:00</th>
+                        <th class="hour-cell text-xs">14:00</th>
+                        <th class="hour-cell text-xs">15:00</th>
+                        <th class="hour-cell text-xs">16:00</th>
+                        <th class="hour-cell text-xs">17:00</th>
+                        <th class="hour-cell text-xs">18:00</th>
+                        <th class="hour-cell text-xs">19:00</th>
+                        <th class="hour-cell text-xs">20:00</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="move-on-hover">
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img
+                                src="assets/img/chimangos/diego.jpg"
+                                class="avatar avatar-md me-3"
+                                alt="user1"
+                              />
+                            </div>
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <h6 class="mb-0 text-md" id="nombre-diego">Diego</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-start-half color-diego">
+                            <h5>8:30</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-diego"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end color-diego">
+                            <h5>11:00</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container">
+                          <div class="hour-start color-diego">
+                            <h5>13:00</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-diego"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-diego"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-diego"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end-half color-diego">
+                            <h5>17:30</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                      </tr>
+                      <tr class="move-on-hover">
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img
+                                src="assets/img/chimangos/rodrigo.jpg"
+                                class="avatar avatar-md me-3"
+                                alt="user1"
+                              />
+                            </div>
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <h6 class="mb-0 text-md" id="nombre-rodrigo">Rodri</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-start-half color-rodrigo">
+                            <h5>8:30</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-rodrigo"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-rodrigo"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-rodrigo"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-rodrigo"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-rodrigo"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-rodrigo"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end-half color-rodrigo">
+                            <h5>15:30</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                      </tr>
+                      <tr class="move-on-hover">
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img
+                                src="assets/img/chimangos/tomi.jpg"
+                                class="avatar avatar-md me-3"
+                                alt="user1"
+                              />
+                            </div>
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <h6 class="mb-0 text-md" id="nombre-tomi">Tomi</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-start-half color-tomi">
+                            <h5>8:30</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-tomi"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-tomi"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-tomi"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-tomi"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-tomi"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-tomi"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-tomi"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-tomi"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end-half color-tomi">
+                            <h5>17:30</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                      </tr>
+                      <tr class="move-on-hover">
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img
+                                src="assets/img/chimangos/mati.jpg"
+                                class="avatar avatar-md me-3"
+                                alt="user1"
+                              />
+                            </div>
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <h6 class="mb-0 text-md" id="nombre-mati">Mati</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-start-half color-mati">
+                            <h5>8:30</h5>
+                          </div>
+                        </td>
+												<td class="hour-container">
+                          <div class="hour-during color-mati"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-mati"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-mati"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-mati"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end color-mati">
+                            <h5>14:00</h5>
+                          </div>
+                        </td>
+												<td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                      </tr>
+                      <tr class="move-on-hover">
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img
+                                src="assets/img/chimangos/nacho.jpg"
+                                class="avatar avatar-md me-3"
+                                alt="user1"
+                              />
+                            </div>
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <h6 class="mb-0 text-md" id="nombre-nacho">Nacho</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-start-half color-nacho">
+                            <h5>8:30</i></h5>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-nacho"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-nacho"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-nacho"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-nacho"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end-half color-nacho">
+                            <h5>13:30</h5>
+                          </div>
+                        </td>                        
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                      </tr>
+                      <tr class="move-on-hover">
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img
+                                src="assets/img/chimangos/angie.jpg"
+                                class="avatar avatar-md me-3"
+                                alt="user1"
+                              />
+                            </div>
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <h6 class="mb-0 text-md" id="nombre-angie">Angie</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-start-half color-angie">
+                            <h5>8:30</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-angie"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-angie"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-angie"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end color-angie">
+                            <h5>13:00</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container"></td>
+												<td class="hour-container"></td>
+												<td class="hour-container"></td>
+												<td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                      </tr>
+                      <tr class="move-on-hover">
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img
+                                src="assets/img/chimangos/claudio.jpg"
+                                class="avatar avatar-md me-3"
+                                alt="user1"
+                              />
+                            </div>
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <h6 class="mb-0 text-md" id="nombre-claudio">Claudio</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                      </tr>
+                      <tr class="move-on-hover">
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img
+                                src="assets/img/chimangos/marco.jpg"
+                                class="avatar avatar-md me-3"
+                                alt="user1"
+                              />
+                            </div>
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <h6 class="mb-0 text-md" id="nombre-marco">Marco</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-start-half color-marco">
+                            <h5>8:30</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-marco"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end color-marco">
+                            <h5>11:00</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container">
+                          <div class="hour-start color-marco">
+                            <h5>13:00</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-marco"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-marco"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-marco"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end-half color-marco">
+                            <h5>17:30</h5>
+                          </div>
+                        </td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                        <td class="hour-container"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card h-20 p-3 mb-4">
+              <div
+                class="card move-on-hover align-items-start"
+              >
+                <iframe
+                    width="100%"
+                    height="235px"
+                    src=""
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    class="full-background"
+                    id="video"
+                  ></iframe>
+              </div>
+              <div class="input-group mt-3">
+                <span class="input-group-text text-body"
+                  ><i class="fas fa-link" aria-hidden="true"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control ps-5"
+                  placeholder="Link del video"
+                  id="video-link"
+                />
+                <button
+                  class="btn bg-gradient-dark mb-0"
+                  type="button"
+                  id="cambiar-video"
+                >
+                  Cambiar
+                </button>
+              </div>
+            </div>
+            <div class="card h-50 p-3">
+              <div
+                class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+                style="background-image: url('assets/img/ivancik.jpg')"
+                id="meme-image"
+              >
+                <span class="mask bg-gradient-dark-30"></span>
+                <div
+                  class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3"
+                >
+                  <h5 class="text-white font-weight-bolder mb-4 pt-2">
+                    Memes aleatorios
+                  </h5>
+                  <a
+                    class="text-white text-md font-weight-bold mb-0 icon-move-right mt-auto"
+                    id="get-meme-button"
+                    href="javascript://"
+                  >
+                    Generar otro
+                    <i
+                      class="fas fa-arrow-right text-md ms-1"
+                      aria-hidden="true"
+                    ></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer pt-3">
+          <div class="container-fluid">
+            <div class="row align-items-center justify-content-lg-between">
+              <div class="col-lg-6 mb-lg-0 mb-4">
+                <div
+                  class="copyright text-center text-md text-muted text-lg-start" id="seLaCome"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/chartjs.min.js"></script>
+    <script>
+      var ctx = document.getElementById("chart-bars").getContext("2d");
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: [
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          datasets: [
+            {
+              label: "Sales",
+              tension: 0.4,
+              borderWidth: 0,
+              borderRadius: 4,
+              borderSkipped: false,
+              backgroundColor: "#fff",
+              data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+              maxBarThickness: 6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          interaction: {
+            intersect: false,
+            mode: "index",
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+              },
+              ticks: {
+                suggestedMin: 0,
+                suggestedMax: 500,
+                beginAtZero: true,
+                padding: 15,
+                font: {
+                  size: 14,
+                  family: "Open Sans",
+                  style: "normal",
+                  lineHeight: 2,
+                },
+                color: "#fff",
+              },
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+          },
+        },
+      });
+
+      var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+      var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+      gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+      gradientStroke1.addColorStop(0, "rgba(203,12,159,0)"); //purple colors
+
+      var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+      gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+      gradientStroke2.addColorStop(0, "rgba(20,23,39,0)"); //purple colors
+
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: [
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          datasets: [
+            {
+              label: "Mobile apps",
+              tension: 0.4,
+              borderWidth: 0,
+              pointRadius: 0,
+              borderColor: "#cb0c9f",
+              borderWidth: 3,
+              backgroundColor: gradientStroke1,
+              fill: true,
+              data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+              maxBarThickness: 6,
+            },
+            {
+              label: "Websites",
+              tension: 0.4,
+              borderWidth: 0,
+              pointRadius: 0,
+              borderColor: "#3A416F",
+              borderWidth: 3,
+              backgroundColor: gradientStroke2,
+              fill: true,
+              data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+              maxBarThickness: 6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          interaction: {
+            intersect: false,
+            mode: "index",
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                display: true,
+                padding: 10,
+                color: "#b2b9bf",
+                font: {
+                  size: 11,
+                  family: "Open Sans",
+                  style: "normal",
+                  lineHeight: 2,
+                },
+              },
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: false,
+                drawOnChartArea: false,
+                drawTicks: false,
+                borderDash: [5, 5],
+              },
+              ticks: {
+                display: true,
+                color: "#b2b9bf",
+                padding: 20,
+                font: {
+                  size: 11,
+                  family: "Open Sans",
+                  style: "normal",
+                  lineHeight: 2,
+                },
+              },
+            },
+          },
+        },
+      });
+    </script>
+    <script>
+      var win = navigator.platform.indexOf("Win") > -1;
+      if (win && document.querySelector("#sidenav-scrollbar")) {
+        var options = {
+          damping: "0.5",
+        };
+        Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+      }
+    </script>
+
+    <script>
+
+      var memeImgSRC = [];
+
+      fetch("https://api.imgflip.com/get_memes")
+        .then((response) => response.json())
+        .then((data) => {
+          var random = Math.floor(Math.random() * (100 - 0)) + 0;
+          var memeImg = document.getElementById("meme-image");
+          memeImg.style.backgroundImage =
+            "url(" + data.data.memes[random].url + ")";
+          (memeImgSRC = data.data), memes;
+        });
+
+      var changeButton = document.getElementById("cambiar-video");
+      changeButton.addEventListener("click", function () {
+        var video = document.getElementById("video");
+        var newLink = document.getElementById("video-link").value;
+        newLink = newLink.split("=");
+        newLink =
+          "https://www.youtube.com/embed/" +
+          newLink[1] +
+          "?controls=1&enablejsapi=1&html5=1&autoplay=1";
+        video.src = newLink;
+        localStorage.setItem('video', newLink);
+
+        document.getElementById("video-link").value = "";
+
+      });
+
+      var getMemeButton = document.getElementById("get-meme-button");
+      getMemeButton.addEventListener("click", function () {
+        var random = Math.floor(Math.random() * (100 - 0)) + 0;
+        var memeImg = document.getElementById("meme-image");
+        memeImg.style.backgroundImage =
+          "url(" + memeImgSRC.memes[random].url + ")";
+      });
+
+      // Inject YouTube API script
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+
+
+    <script src="assets/js/auth.js"></script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="assets/js/soft-ui-dashboard.min.js?v=1.0.5"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/clock.js"></script>
+    <script src="assets/js/joke.js"></script>
+  </body>
+</html>

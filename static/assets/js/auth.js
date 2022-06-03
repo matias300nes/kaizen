@@ -23,8 +23,8 @@ function login(e){
         .then(response => {
             console.log(response);
             if (response.id) {
-                sessionStorage.setItem('user', JSON.stringify(response));
-                window.location.href = 'index.html';
+                localStorage.setItem('user', JSON.stringify(response));
+                window.location.href = 'profile.html';
             }
             else {
                 alert(response.message);
@@ -37,14 +37,23 @@ function login(e){
 
 function checkAuthenticated() {
     //user not exist in session storage redirect to login
-    user = JSON.parse(sessionStorage.getItem('user'));
-    if (user == null) {
-        window.location.href = 'login.html';
+    user = JSON.parse(localStorage.getItem('user'));
+    if (user === null) {
+        window.location.href = 'index.html';
+    }else{
+        return true;
     }
 }
 
-if (window.location.href.includes('login.html')) {
-    document.getElementById('login-form').addEventListener('submit', login);
-}else{
-    checkAuthenticated();
-}
+window.onload = function() {
+    var loginForm = document.getElementById('login-form');
+    if(loginForm !== null){
+        document.getElementById('login-form').addEventListener('submit', login);
+        console.log(checkAuthenticated());
+        if(checkAuthenticated()){
+            window.location.href = 'profile.html';
+        }
+    }else{
+        checkAuthenticated();
+    }
+};
