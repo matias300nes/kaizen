@@ -40,8 +40,6 @@ function checkAuthenticated() {
     user = JSON.parse(localStorage.getItem('user'));
     if (user === null) {
         window.location.href = 'index.html';
-    }else{
-        return true;
     }
 }
 
@@ -49,8 +47,8 @@ window.onload = function() {
     var loginForm = document.getElementById('login-form');
     if(loginForm !== null){
         document.getElementById('login-form').addEventListener('submit', login);
-        console.log(checkAuthenticated());
-        if(checkAuthenticated()){
+        user = JSON.parse(localStorage.getItem('user'));
+        if(user !== null){
             window.location.href = 'profile.html';
         }
     }else{
