@@ -32,16 +32,16 @@
         <div class="row gx-4">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <img src="assets/img/chimangos/diego.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              <img src="" alt="profile_image" class="w-100 border-radius-lg shadow-sm" id="profile-img">
             </div>
           </div>
           <div class="col-auto my-auto">
             <div class="h-100">
-              <h5 class="mb-1">
-                Diego Puertas
+              <h5 class="mb-1" id="profile-name">
+                Chimango
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
-                CEO / Co-Founder
+                Chimango
               </p>
             </div>
           </div>
@@ -61,7 +61,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 " href="javascript:;" role="tab" aria-selected="false">
+                  <a class="nav-link mb-0 px-0 py-1 " href="dashboard.html" role="tab" aria-selected="false">
                     <i class="fa fa-dashboard" aria-hidden="true"></i>
                     <span class="ms-1">Dashboard</span>
                   </a>
@@ -80,33 +80,25 @@
               <h6 class="mb-0">Estado</h6>
             </div>
             <div class="card-body p-3">
-              <h6 class="text-uppercase text-body text-xs font-weight-bolder">Ausencia</h6>
               <ul class="list-group">
-                <li class="list-group-item border-0 px-0">
-                  <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Ausente</label>
-                  </div>
-                </li>
-                <li class="list-group-item border-0 px-0">
-                  <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault1">Home Office</label>
-                  </div>
-                </li>
-                <li class="list-group-item border-0 px-0">
-                  <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked>
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">En clases</label>
-                  </div>
-                </li>
-                <li class="list-group-item border-0 px-0">
-                  <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Vacaciones</label>
-                  </div>
-                </li>
+                <h6 class="text-uppercase text-body text-xs font-weight-bolder">Ausencia</h6>
+                <select name="" id="" class="form-control">
+                  <option selected>Disponible</option>
+                  <option value="1">En la universidad</option>
+                  <option value="2">En Árido</option>
+                  <option value="3">Home Office</option>
+                  <option value="3">Ausente</option>
+                </select>
               </ul>
+              <div class="text-center">
+                <button
+                      class="btn bg-gradient-dark mt-3 mb-0"
+                      type="button"
+                      id="saveHorarios"
+                    >
+                      Guardar
+               </button>
+              </div>
             </div>
           </div>
         </div>
@@ -127,76 +119,123 @@
             <div class="card-body p-3">
               
               <ul class="list-group">
-                <h6 class="text-uppercase text-body text-xs font-weight-bolder">Lunes</h6>
+                <h6 class="text-uppercase text-body text-xs font-weight-bolder">lunes</h6>
                 <li class="list-group-item border-0 px-0">
                   <div class="row ps-3">
                     <div class="col-lg-2">
                       <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault">
+                        <input class="form-check-input ms-auto mt-2" type="checkbox" id="flexSwitchCheckDefault">
                       </div>
                     </div>
                     <div class="col-lg-5">
-                      <div class="input-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Mensaje"
-                          id="video-link"
-                        />
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Mensaje"
-                          id="video-link"
-                        />
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde1">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta1">
                       </div>
                     </div>
                     <div class="col-lg-5">
-                      <div class="input-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Mensaje"
-                          id="video-link"
-                        />
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Mensaje"
-                          id="video-link"
-                        />
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde2">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta2">
                       </div>
                     </div>
                   </div>
                 </li>
-                <h6 class="text-uppercase text-body text-xs font-weight-bolder">Martes</h6>
+                <h6 class="text-uppercase text-body text-xs font-weight-bolder">martes</h6>
                 <li class="list-group-item border-0 px-0">
-                  <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Ausente</label>
+                  <div class="row ps-3">
+                    <div class="col-lg-2">
+                      <div class="form-check form-switch ps-0">
+                        <input class="form-check-input ms-auto mt-2" type="checkbox" id="flexSwitchCheckDefault">
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde1">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta1">
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde2">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta2">
+                      </div>
+                    </div>
                   </div>
                 </li>
-                <h6 class="text-uppercase text-body text-xs font-weight-bolder">Miércoles</h6>
+                <h6 class="text-uppercase text-body text-xs font-weight-bolder">miercoles</h6>
                 <li class="list-group-item border-0 px-0">
-                  <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Ausente</label>
+                  <div class="row ps-3">
+                    <div class="col-lg-2">
+                      <div class="form-check form-switch ps-0">
+                        <input class="form-check-input ms-auto mt-2" type="checkbox" id="flexSwitchCheckDefault">
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde1">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta1">
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde2">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta2">
+                      </div>
+                    </div>
                   </div>
                 </li>
-                <h6 class="text-uppercase text-body text-xs font-weight-bolder">Jueves</h6>
+                <h6 class="text-uppercase text-body text-xs font-weight-bolder">jueves</h6>
                 <li class="list-group-item border-0 px-0">
-                  <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Ausente</label>
+                  <div class="row ps-3">
+                    <div class="col-lg-2">
+                      <div class="form-check form-switch ps-0">
+                        <input class="form-check-input ms-auto mt-2" type="checkbox" id="flexSwitchCheckDefault">
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde1">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta1">
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde2">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta2">
+                      </div>
+                    </div>
                   </div>
                 </li>
-                <h6 class="text-uppercase text-body text-xs font-weight-bolder">Viernes</h6>
+                <h6 class="text-uppercase text-body text-xs font-weight-bolder">viernes</h6>
                 <li class="list-group-item border-0 px-0">
-                  <div class="form-check form-switch ps-0">
-                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Ausente</label>
+                  <div class="row ps-3">
+                    <div class="col-lg-2">
+                      <div class="form-check form-switch ps-0">
+                        <input class="form-check-input ms-auto mt-2" type="checkbox" id="flexSwitchCheckDefault">
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde1">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta1">
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="d-flex">
+                        <input type="text" class="form-control me-3" placeholder="Desde" aria-label="User" id="lunes-desde2">
+                        <input type="text" class="form-control" placeholder="Hasta" aria-label="User" id="lunes-hasta2">
+                      </div>
+                    </div>
                   </div>
                 </li>
+                <button
+                      class="btn bg-gradient-dark mt-3 mb-0"
+                      type="button"
+                      id="saveHorarios"
+                    >
+                      Guardar
+                </button>
               </ul>
             </div>
           </div>
@@ -209,7 +248,7 @@
             <div class="card-body p-3">
               <ul class="list-group">
                   <div id="MessagesContainer" class="chat-container">
-                      
+                      <p class="text-center mt-5">No hay mensajes que mostrar</p>
                   </div>
                 <li class="list-group-item border-0 d-flex align-items-center px-0 ">
                   <form class="input-group" id="form-msg">
@@ -240,7 +279,8 @@
   
   <!--   Core JS Files   -->
   <script src="assets/js/auth.js"></script>
-        <script src= "socket.io/socket.io.js"></script>
+  <script src="assets/js/profile.js"></script>
+  <script src= "socket.io/socket.io.js"></script>
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
