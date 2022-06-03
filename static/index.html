@@ -68,7 +68,21 @@
           <div class="col-lg-9 mb-lg-0 mb-4">
             <div class="card h-100 mb-4">
               <div class="card-header pb-0">
-                <h5>Horarios del dia</h5>
+                <div class="row">
+                  <div class="col-8">
+                    <h5>Horarios del dia</h5>
+                  </div>
+                  <div class="col-4 text-end">
+                    <button
+                        class="btn bg-gradient-primary"
+                        type="button"
+                        id="sortearLavaplatos"
+                      >
+                        Sortear quien lava los platos
+                        <i class="fa-solid fa-shuffle ms-2"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
               <div class="card-body ps-0 pt-0 pb-2">
                 <div class="p-0">
@@ -109,7 +123,7 @@
                             <div
                               class="d-flex flex-column justify-content-center"
                             >
-                              <h6 class="mb-0 text-md">Diego</h6>
+                              <h6 class="mb-0 text-md" id="nombre-diego">Diego</h6>
                             </div>
                           </div>
                         </td>
@@ -139,14 +153,12 @@
 												<td class="hour-container">
                           <div class="hour-during color-diego"></div>
                         </td>
-												<td class="hour-container">
-                          <div class="hour-during color-diego"></div>
-                        </td>
                         <td class="hour-container">
-                          <div class="hour-end-half color-diego">
-                            <h5>16:30</h5>
+                          <div class="hour-end color-diego">
+                            <h5>15:00</h5>
                           </div>
                         </td>
+                        <td class="hour-container"></td>
                         <td class="hour-container"></td>
                         <td class="hour-container"></td>
                         <td class="hour-container"></td>
@@ -164,7 +176,7 @@
                             <div
                               class="d-flex flex-column justify-content-center"
                             >
-                              <h6 class="mb-0 text-md">Rodri</h6>
+                              <h6 class="mb-0 text-md" id="nombre-rodrigo">Rodri</h6>
                             </div>
                           </div>
                         </td>
@@ -219,7 +231,7 @@
                             <div
                               class="d-flex flex-column justify-content-center"
                             >
-                              <h6 class="mb-0 text-md">Tomi</h6>
+                              <h6 class="mb-0 text-md" id="nombre-tomi">Tomi</h6>
                             </div>
                           </div>
                         </td>
@@ -274,33 +286,33 @@
                             <div
                               class="d-flex flex-column justify-content-center"
                             >
-                              <h6 class="mb-0 text-md">Mati</h6>
+                              <h6 class="mb-0 text-md" id="nombre-mati">Mati</h6>
                             </div>
                           </div>
                         </td>
 												<td class="hour-container"></td>
 												<td class="hour-container"></td>
 												<td class="hour-container"></td>
+                        <td class="hour-container"></td>
                         <td class="hour-container">
                           <div class="hour-start color-mati">
                             <h5>11:00</h5>
                           </div>
                         </td>
+												<td class="hour-container">
+                          <div class="hour-during color-mati"></div>
+                        </td>
+												<td class="hour-container">
+                          <div class="hour-during color-mati"></div>
+                        </td>
                         <td class="hour-container">
-                          <div class="hour-during color-mati"></div>
-                        </td>
-												<td class="hour-container">
-                          <div class="hour-during color-mati"></div>
-                        </td>
-												<td class="hour-container">
                           <div class="hour-during color-mati"></div>
                         </td>
                         <td class="hour-container">
                           <div class="hour-end color-mati">
-                            <h5>16:00</h5>
+                            <h5>17:00</h5>
                           </div>
                         </td>
-                        <td class="hour-container"></td>
                         <td class="hour-container"></td>
                         <td class="hour-container"></td>
                         <td class="hour-container"></td>
@@ -319,16 +331,13 @@
                             <div
                               class="d-flex flex-column justify-content-center"
                             >
-                              <h6 class="mb-0 text-md">Nacho <i class="fa-solid fa-sink ml-2"></i></h6>
+                              <h6 class="mb-0 text-md" id="nombre-nacho">Nacho</h6>
                             </div>
                           </div>
                         </td>
-                        <td class="hour-container"></td>
-                        <td class="hour-container"></td>
-                        <td class="hour-container"></td>
                         <td class="hour-container">
                           <div class="hour-start-half color-nacho">
-                            <h5>11:30</i></h5>
+                            <h5>8:30</i></h5>
                           </div>
                         </td>
                         <td class="hour-container">
@@ -344,8 +353,17 @@
                           <div class="hour-during color-nacho"></div>
                         </td>
                         <td class="hour-container">
-                          <div class="hour-end color-nacho">
-                            <h5>17:00</h5>
+                          <div class="hour-during color-nacho"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-nacho"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-during color-nacho"></div>
+                        </td>
+                        <td class="hour-container">
+                          <div class="hour-end-half color-nacho">
+                            <h5>16:30</h5>
                           </div>
                         </td>
                         <td class="hour-container"></td>
@@ -366,7 +384,7 @@
                             <div
                               class="d-flex flex-column justify-content-center"
                             >
-                              <h6 class="mb-0 text-md">Angie</h6>
+                              <h6 class="mb-0 text-md" id="nombre-angie">Angie</h6>
                             </div>
                           </div>
                         </td>
@@ -411,7 +429,7 @@
                             <div
                               class="d-flex flex-column justify-content-center"
                             >
-                              <h6 class="mb-0 text-md">Claudio</h6>
+                              <h6 class="mb-0 text-md" id="nombre-claudio">Claudio</h6>
                             </div>
                           </div>
                         </td>
@@ -456,7 +474,7 @@
                             <div
                               class="d-flex flex-column justify-content-center"
                             >
-                              <h6 class="mb-0 text-md">Marco</h6>
+                              <h6 class="mb-0 text-md" id="nombre-marco">Marco</h6>
                             </div>
                           </div>
                         </td>
@@ -497,69 +515,18 @@
           <div class="col-lg-3">
             <div class="card h-20 p-3 mb-4">
               <div
-                class="card card-background move-on-hover align-items-start"
+                class="card move-on-hover align-items-start"
               >
-                <div class="cursor-pointer">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/_aA14l32f64?controls=0&enablejsapi=1&html5=1"
+                <iframe
+                    width="100%"
+                    height="235px"
+                    src=""
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     class="full-background"
                     id="video"
                   ></iframe>
-                  <div class="card-body">
-                    <h5 class="text-white mb-0" id="video-title">
-                      Cargando...
-                    </h5>
-                    <p class="text-white text-md" id="video-author"></p>
-
-                    <div class="d-flex mt-5">
-                      <button
-                        class="btn btn-outline-white rounded-circle p-2 mb-0"
-                        type="button"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Prev"
-                        id="previous-button"
-                      >
-                        <i class="fas fa-backward p-2"></i>
-                      </button>
-                      <button
-                        class="btn btn-outline-white rounded-circle p-2 mx-2 mb-0"
-                        type="button"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Play"
-                        id="play-button"
-                      >
-                        <i class="fas fa-play p-2"></i>
-                      </button>
-                      <button
-                        class="btn btn-outline-white rounded-circle p-2 mx-2 mb-0 hidden"
-                        type="button"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Pause"
-                        id="pause-button"
-                      >
-                        <i class="fas fa-pause p-2"></i>
-                      </button>
-                      <button
-                        class="btn btn-outline-white rounded-circle p-2 mb-0"
-                        type="button"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Next"
-                        id="next-button"
-                      >
-                        <i class="fas fa-forward p-2"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
               <div class="input-group mt-3">
                 <span class="input-group-text text-body"
@@ -576,7 +543,7 @@
                   type="button"
                   id="cambiar-video"
                 >
-                  &nbsp;&nbsp;Cambiar
+                  Cambiar
                 </button>
               </div>
             </div>
@@ -616,7 +583,7 @@
                 <div
                   class="copyright text-center text-md text-muted text-lg-start"
                 >
-                  <i class="fa fa-heart"></i> Nacho se la come
+                  <i class="fa fa-heart"></i> Rodri se la come
                 </div>
               </div>
             </div>
@@ -832,6 +799,7 @@
     </script>
 
     <script>
+
       var memeImgSRC = [];
 
       fetch("https://api.imgflip.com/get_memes")
@@ -844,59 +812,6 @@
           (memeImgSRC = data.data), memes;
         });
 
-      // global variable for the player
-      var player;
-
-      // this function gets called when API is ready to use
-      function onYouTubePlayerAPIReady() {
-        // create the global player from the specific iframe (#video)
-        player = new YT.Player("video", {
-          events: {
-            // call this function when player is ready to use
-            onReady: onPlayerReady,
-          },
-        });
-      }
-
-      function onPlayerReady(event) {
-        var videoTitle = document.getElementById("video-title");
-        videoTitle.innerText = player.getVideoData().title;
-
-        var videoAuthor = document.getElementById("video-author");
-        if (player.getVideoData().author !== "") {
-          videoTitle.innerText = player.getVideoData().author;
-        }
-        // bind events
-        var playButton = document.getElementById("play-button");
-        playButton.addEventListener("click", function () {
-          player.playVideo();
-          document.getElementById("pause-button").classList.toggle("hidden");
-          document.getElementById("play-button").classList.toggle("hidden");
-        });
-
-        var pauseButton = document.getElementById("pause-button");
-        pauseButton.addEventListener("click", function () {
-          player.pauseVideo();
-          document.getElementById("pause-button").classList.toggle("hidden");
-          document.getElementById("play-button").classList.toggle("hidden");
-        });
-
-        var previousButton = document.getElementById("previous-button");
-        previousButton.addEventListener("click", function () {
-          player.previousVideo();
-        });
-
-        var nextButton = document.getElementById("next-button");
-        nextButton.addEventListener("click", function () {
-          player.nextVideo();
-        });
-
-        var stopButton = document.getElementById("stop-button");
-        stopButton.addEventListener("click", function () {
-          player.stopVideo();
-        });
-      }
-
       var changeButton = document.getElementById("cambiar-video");
       changeButton.addEventListener("click", function () {
         var video = document.getElementById("video");
@@ -905,67 +820,12 @@
         newLink =
           "https://www.youtube.com/embed/" +
           newLink[1] +
-          "?controls=0&enablejsapi=1&html5=1";
+          "?controls=1&enablejsapi=1&html5=1&autoplay=1";
         video.src = newLink;
+        localStorage.setItem('video', newLink);
 
         document.getElementById("video-link").value = "";
 
-        var player;
-
-        // this function gets called when API is ready to use
-        function onYouTubePlayerAPIReady() {
-          // create the global player from the specific iframe (#video)
-          player = new YT.Player("video", {
-            events: {
-              // call this function when player is ready to use
-              onReady: onPlayerReady,
-            },
-          });
-        }
-
-        function onPlayerReady(event) {
-          var videoTitle = document.getElementById("video-title");
-          videoTitle.innerText = player.getVideoData().title;
-
-          var videoAuthor = document.getElementById("video-author");
-          if (player.getVideoData().author !== "") {
-            videoTitle.innerText = player.getVideoData().author;
-          }
-          // bind events
-          var playButton = document.getElementById("play-button");
-          playButton.addEventListener("click", function () {
-            player.playVideo();
-            document.getElementById("pause-button").classList.toggle("hidden");
-            document.getElementById("play-button").classList.toggle("hidden");
-          });
-
-          var pauseButton = document.getElementById("pause-button");
-          pauseButton.addEventListener("click", function () {
-            player.pauseVideo();
-            document.getElementById("pause-button").classList.toggle("hidden");
-            document.getElementById("play-button").classList.toggle("hidden");
-          });
-
-          var previousButton = document.getElementById("previous-button");
-          previousButton.addEventListener("click", function () {
-            player.previousVideo();
-          });
-
-          var nextButton = document.getElementById("next-button");
-          nextButton.addEventListener("click", function () {
-            player.nextVideo();
-          });
-
-          var stopButton = document.getElementById("stop-button");
-          stopButton.addEventListener("click", function () {
-            player.stopVideo();
-          });
-
-          var tag = document.createElement("script");
-          tag.src = "https://www.youtube.com/player_api";
-          var firstScriptTag = document.getElementsByTagName("script")[0];
-          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        }
       });
 
       var getMemeButton = document.getElementById("get-meme-button");
