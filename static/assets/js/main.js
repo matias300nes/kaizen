@@ -133,7 +133,31 @@
     }
   }
 
+  function getSeLaCome(){
+    var todaySeLaCome = localStorage.getItem("seLaCome");
+    if (todaySeLaCome !== null) {
+      var nombre = todaySeLaCome.split(",")[0];
+      var nombreMay = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+      var dia = todaySeLaCome.split(",")[1];
+      if (dia === dayName) {
+        document.getElementById("seLaCome").innerHTML = "<i class='fa fa-heart'></i> " + nombreMay + " se la come"; 
+      }else{
+        sortSeLaCome();
+      }
+    }else{
+      sortSeLaCome();
+    }
+  }
+
+  function sortSeLaCome(){
+    var resultado = getRandomInt(0, chimangos.length - 1);
+    var todaySeLaCome = [chimangos[resultado].nombre, dayName];
+    localStorage.setItem("seLaCome", todaySeLaCome);
+    getSeLaCome();
+  }
+
   getLavaplatos();
+  getSeLaCome();
 
   var sortLavaPlatos = document.getElementById("sortearLavaplatos");
   sortLavaPlatos.addEventListener("click", function () {
