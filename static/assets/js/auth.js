@@ -37,6 +37,7 @@ function login(e){
 
 function checkAuthenticated() {
     //user not exist in session storage redirect to login
+    console.log("checking auth")
     user = JSON.parse(localStorage.getItem('user'));
     if (user === null) {
         window.location.href = 'index.html';

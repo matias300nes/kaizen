@@ -27,7 +27,7 @@ window.onload = () => {
     socket = io();
     messageInput = document.getElementById("ComposedMessage");
     currentUser = JSON.parse(localStorage.getItem('user'));
-    Room = "Main";
+    room = "Main";
     dingSound = document.getElementById("AudioPlayer");
     messages =  document.getElementById("MessagesContainer")
     
