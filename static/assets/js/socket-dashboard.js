@@ -23,7 +23,7 @@ window.onload = () => {
     currentUser = JSON.parse(localStorage.getItem('user'));
     room = "Main";
     dingSound = document.getElementById("AudioPlayer");
-
+    
 
     socket.on("join", function(user){
         console.log("user joined")
@@ -44,6 +44,7 @@ window.onload = () => {
         toastContainer.appendChild(toast);
         
         console.log(response.message);
+        dingSound.src = "assests/audio/Ding.mp3"
         dingSound.currentTime = 0;
         dingSound.play();
 
@@ -72,6 +73,12 @@ function execCommand(command, parameters){
 
             musicIntput.value = parameters[0];
             playButton.click();
+            break;
+        case "$playWav":
+            audioPlayer = document.getElementById("AudioPlayer");
+            audioPlayer.src = `assets/audio/${parameters[0]}.wav`
+            audioPlayer.currentTime = 0;
+            audioPlayer.play();
             break;
             
     }
