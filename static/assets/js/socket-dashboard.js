@@ -1,3 +1,4 @@
+
 var socket;
 var messageInput;
 var room;
@@ -80,6 +81,15 @@ function execCommand(command, parameters){
             audioPlayer.currentTime = 0;
             audioPlayer.play();
             break;
-            
+        case "$say":
+            var msg = new SpeechSynthesisUtterance();
+            str = ""
+            parameters.forEach(item => {
+                str += " " + item
+            })
+            msg.text = str;
+            msg.lang = "es";
+            window.speechSynthesis.speak(msg);
+            break;
     }
 }

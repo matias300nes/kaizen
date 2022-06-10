@@ -16,33 +16,33 @@ httpserver.listen(3000);
 var rooms = [];
 var users = [];
 
-io.on('connection', function(socket){
+io.on('connection', function(socket) {
 
-  socket.on("join", function(room, user){
-    if (user != null){
-        rooms[socket.id] = room;
-        users[socket.id] = user;
-        socket.leaveAll();
-        socket.join(room);
-        /* io.in(room).emit("recieve", "Server : " + user.username + " has entered the chat.");
-        socket.emit("join", room); */
-        io.in(room).emit("join", user);
-    }
-  })
+	socket.on("join", function(room, user) {
+		if (user != null) {
+			rooms[socket.id] = room;
+			users[socket.id] = user;
+			socket.leaveAll();
+			socket.join(room);
+			/* io.in(room).emit("recieve", "Server : " + user.username + " has entered the chat.");
+			socket.emit("join", room); */
+			io.in(room).emit("join", user);
+		}
+	})
 
-  socket.on("send", function(message){
-    response = {
-        user:users[socket.id],
-        message:message
-    }
-    io.in(rooms[socket.id]).emit("recieve", response);
-  })
+	socket.on("send", function(message) {
+		response = {
+			user: users[socket.id],
+			message: message
+		}
+		io.in(rooms[socket.id]).emit("recieve", response);
+	})
 
-    socket.on("recieve", function(message){
-        response = {
-            user:users[socket.id],
-            message:message
-        }
-        socket.emit("recieve", response);
-    })
+	socket.on("recieve", function(message) {
+		response = {
+			user: users[socket.id],
+			message: message
+		}
+		socket.emit("recieve", response);
+	})
 })
