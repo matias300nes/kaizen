@@ -373,8 +373,6 @@
     });
   }
 
-  setHorarios(4);
-
   switch (dayName) {
     case "Lunes":
       setHorarios(0);
