@@ -133,23 +133,24 @@
     }
   }
 
-  function getSeLaCome(){
+  function getSeLaCome() {
     var todaySeLaCome = localStorage.getItem("seLaCome");
     if (todaySeLaCome !== null) {
       var nombre = todaySeLaCome.split(",")[0];
       var nombreMay = nombre.charAt(0).toUpperCase() + nombre.slice(1);
       var dia = todaySeLaCome.split(",")[1];
       if (dia === dayName) {
-        document.getElementById("seLaCome").innerHTML = "<i class='fa fa-heart'></i> " + nombreMay + " se la come"; 
-      }else{
+        document.getElementById("seLaCome").innerHTML =
+          "<i class='fa fa-heart'></i> " + nombreMay + " se la come";
+      } else {
         sortSeLaCome();
       }
-    }else{
+    } else {
       sortSeLaCome();
     }
   }
 
-  function sortSeLaCome(){
+  function sortSeLaCome() {
     var resultado = getRandomInt(0, chimangos.length - 1);
     var todaySeLaCome = [chimangos[resultado].nombre, dayName];
     localStorage.setItem("seLaCome", todaySeLaCome);
@@ -185,43 +186,194 @@
       var horario2 = document.getElementById("horario2-" + element.nombre);
       var arrayHorarios = element.horarios[dia].horario;
       if (arrayHorarios.length === 1) {
-        horario.setAttribute(
-          "data-start",
-          element.horarios[dia].horario[0].entrada
-        );
-        horario.setAttribute(
-          "data-end",
-          element.horarios[dia].horario[0].salida
-        );
-        horario.classList.remove("hidden");
-      } else if (arrayHorarios.length === 2) {
-        horario.setAttribute(
-          "data-start",
-          element.horarios[dia].horario[0].entrada
-        );
-        horario.setAttribute(
-          "data-end",
-          element.horarios[dia].horario[0].salida
-        );
-        horario.classList.remove("hidden");
-        horario2.setAttribute(
-          "data-start",
-          element.horarios[dia].horario[1].entrada
-        );
-        horario2.setAttribute(
-          "data-end",
-          element.horarios[dia].horario[1].salida
-        );
-        horario2.classList.remove("hidden");
-      }
+        var nombre = element.nombre;
+        var horarioEntrada = element.horarios[dia].horario[0].entrada;
+        var horarioSalida = element.horarios[dia].horario[0].salida;
 
-      var nombre = element.nombre;
-      nombre = nombre.charAt(0).toUpperCase() + nombre.slice(1);
-      document.getElementById("text-task-" + element.nombre).innerText = nombre;
-      document.getElementById("text-task2-" + element.nombre).innerText =
-        nombre;
+        var horaEntrada = horarioEntrada.split(":")[0];
+        var minEntrada = horarioEntrada.split(":")[1];
+
+        var horaSalida = horarioSalida.split(":")[0];
+        var minSalida = horarioSalida.split(":")[1];
+
+        if (minEntrada === "00") {
+          const divEntrada = document.createElement("div");
+          divEntrada.className = "hour-start color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioEntrada;
+          divEntrada.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaEntrada)
+            .appendChild(divEntrada);
+        } else {
+          const divEntrada = document.createElement("div");
+          divEntrada.className = "hour-start-half color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioEntrada;
+          divEntrada.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaEntrada)
+            .appendChild(divEntrada);
+        }
+
+        if (minSalida === "00") {
+          const divSalida = document.createElement("div");
+          divSalida.className = "hour-end color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioSalida;
+          divSalida.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaSalida)
+            .appendChild(divSalida);
+        } else {
+          const divSalida = document.createElement("div");
+          divSalida.className = "hour-end-half color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioSalida;
+          divSalida.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaSalida)
+            .appendChild(divSalida);
+        }
+
+        for (
+          let index = parseInt(horaEntrada) + 1;
+          index < parseInt(horaSalida);
+          index++
+        ) {
+          const divDurante = document.createElement("div");
+          divDurante.className = "hour-during color-" + nombre;
+          document
+            .getElementById("col-" + nombre + "-" + index)
+            .appendChild(divDurante);
+        }
+      } else if (arrayHorarios.length === 2) {
+        var nombre = element.nombre;
+        var horarioEntrada1 = element.horarios[dia].horario[0].entrada;
+        var horarioSalida1 = element.horarios[dia].horario[0].salida;
+        var horarioEntrada2 = element.horarios[dia].horario[1].entrada;
+        var horarioSalida2 = element.horarios[dia].horario[1].salida;
+
+        var horaEntrada1 = horarioEntrada1.split(":")[0];
+        var minEntrada1 = horarioEntrada1.split(":")[1];
+        var horaEntrada2 = horarioEntrada2.split(":")[0];
+        var minEntrada2 = horarioEntrada2.split(":")[1];
+
+        var horaSalida1 = horarioSalida1.split(":")[0];
+        var minSalida1 = horarioSalida1.split(":")[1];
+        var horaSalida2 = horarioSalida2.split(":")[0];
+        var minSalida2 = horarioSalida2.split(":")[1];
+
+        if (minEntrada1 === "00") {
+          const divEntrada = document.createElement("div");
+          divEntrada.className = "hour-start color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioEntrada1;
+          divEntrada.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaEntrada1)
+            .appendChild(divEntrada);
+        } else {
+          const divEntrada = document.createElement("div");
+          divEntrada.className = "hour-start-half color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioEntrada1;
+          divEntrada.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaEntrada1)
+            .appendChild(divEntrada);
+        }
+
+        if (minSalida1 === "00") {
+          const divSalida = document.createElement("div");
+          divSalida.className = "hour-end color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioSalida1;
+          divSalida.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaSalida1)
+            .appendChild(divSalida);
+        } else {
+          const divSalida = document.createElement("div");
+          divSalida.className = "hour-end-half color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioSalida1;
+          divSalida.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaSalida1)
+            .appendChild(divSalida);
+        }
+
+        for (
+          let index = parseInt(horaEntrada1) + 1;
+          index < parseInt(horaSalida1);
+          index++
+        ) {
+          console.log(index);
+          const divDurante = document.createElement("div");
+          divDurante.className = "hour-during color-" + nombre;
+          document
+            .getElementById("col-" + nombre + "-" + index)
+            .appendChild(divDurante);
+        }
+
+        if (minEntrada2 === "00") {
+          const divEntrada = document.createElement("div");
+          divEntrada.className = "hour-start color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioEntrada2;
+          divEntrada.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaEntrada2)
+            .appendChild(divEntrada);
+        } else {
+          const divEntrada = document.createElement("div");
+          divEntrada.className = "hour-start-half color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioEntrada2;
+          divEntrada.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaEntrada2)
+            .appendChild(divEntrada);
+        }
+
+        if (minSalida2 === "00") {
+          const divSalida = document.createElement("div");
+          divSalida.className = "hour-end color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioSalida2;
+          divSalida.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaSalida2)
+            .appendChild(divSalida);
+        } else {
+          const divSalida = document.createElement("div");
+          divSalida.className = "hour-end-half color-" + nombre;
+          const textoHora = document.createElement("h5");
+          textoHora.innerHTML = horarioSalida2;
+          divSalida.appendChild(textoHora);
+          document
+            .getElementById("col-" + nombre + "-" + horaSalida2)
+            .appendChild(divSalida);
+        }
+
+        for (
+          let index = parseInt(horaEntrada2) + 1;
+          index < parseInt(horaSalida2);
+          index++
+        ) {
+          console.log(index);
+          const divDurante = document.createElement("div");
+          divDurante.className = "hour-during color-" + nombre;
+          document
+            .getElementById("col-" + nombre + "-" + index)
+            .appendChild(divDurante);
+        }
+      }
     });
   }
+
+  setHorarios(4);
 
   switch (dayName) {
     case "Lunes":
