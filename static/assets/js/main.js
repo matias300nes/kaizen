@@ -1,4 +1,5 @@
 (function () {
+
   chimangos = [
     {
       nombre: "mati",
@@ -380,7 +381,7 @@
     case "Martes":
       setHorarios(1);
       break;
-    case "Miércoles":
+    case "Miercoles":
       setHorarios(2);
       break;
     case "Jueves":
