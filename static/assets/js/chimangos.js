@@ -189,6 +189,7 @@ function setHorarios(chimangos) {
           divSalida.className = "hour-end color-" + nombre;
           const textoHora = document.createElement("h5");
           textoHora.innerHTML = horarioSalida1;
+          horaSalida1 = parseInt(horaSalida1)-1;
           divSalida.appendChild(textoHora);
           document
             .getElementById("col-" + nombre + "-" + horaSalida1)
@@ -241,6 +242,7 @@ function setHorarios(chimangos) {
           const divSalida = document.createElement("div");
           divSalida.className = "hour-end color-" + nombre;
           const textoHora = document.createElement("h5");
+          horaSalida2 = parseInt(horaSalida2)-1;
           textoHora.innerHTML = horarioSalida2;
           divSalida.appendChild(textoHora);
           document
