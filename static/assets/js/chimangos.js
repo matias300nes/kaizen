@@ -1,12 +1,3 @@
-const config = {
-  apiKey: "AIzaSyD6Epld_Zia8rhLFAok1ImjH2Nj1AnQFh0",
-  authDomain: "kaizen-d1fe5.firebaseapp.com",
-  projectId: "kaizen-d1fe5",
-  storageBucket: "kaizen-d1fe5.appspot.com",
-  messagingSenderId: "627837625104",
-  appId: "1:627837625104:web:0f4ccf647fd88d748dbb95",
-};
-firebase.initializeApp(config);
 const db = firebase.firestore();
 
 function getChimangos() {
@@ -70,8 +61,6 @@ function setHorarios(chimangos) {
         case 2:
             var horario1 = arrayHorariosSplit[0].split("-");
             var horario2 = arrayHorariosSplit[1].split("-");
-            console.log(horario1);
-    console.log(horario2);
             break;
         case 3:
             var horario1 = arrayHorariosSplit[0].split("-");
@@ -114,7 +103,6 @@ function setHorarios(chimangos) {
         }
 
         if (minSalida === "00") {
-          console.log("Es min salida 00");
           horaSalida = parseInt(horaSalida)-1;
 
           const divSalida = document.createElement("div");
@@ -210,7 +198,6 @@ function setHorarios(chimangos) {
           index < parseInt(horaSalida1);
           index++
         ) {
-          console.log(index);
           const divDurante = document.createElement("div");
           divDurante.className = "hour-during color-" + nombre;
           document
@@ -264,7 +251,6 @@ function setHorarios(chimangos) {
           index < parseInt(horaSalida2);
           index++
         ) {
-          console.log(index);
           const divDurante = document.createElement("div");
           divDurante.className = "hour-during color-" + nombre;
           document
