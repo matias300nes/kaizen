@@ -114,6 +114,9 @@ function setHorarios(chimangos) {
         }
 
         if (minSalida === "00") {
+          console.log("Es min salida 00");
+          horaSalida = parseInt(horaSalida)-1;
+
           const divSalida = document.createElement("div");
           divSalida.className = "hour-end color-" + nombre;
           const textoHora = document.createElement("h5");
