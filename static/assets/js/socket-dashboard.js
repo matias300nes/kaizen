@@ -62,6 +62,11 @@ window.onload = () => {
       
     })
 
+    socket.on('ping', function(data){
+      socket.emit('pong', {beat: 1});
+        console.log("pong")
+    });
+
     Connect()
 }
 

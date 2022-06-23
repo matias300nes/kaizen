@@ -45,4 +45,17 @@ io.on('connection', function(socket) {
 		}
 		socket.emit("recieve", response);
 	})
+
+    socket.on('pong', function(data){
+        console.log("Pong received from client");
+    })
+    
 })
+
+
+function sendHeartbeat(){
+    setTimeout(sendHeartbeat, 24000);
+    io.sockets.emit('ping', { beat : 1 });
+}
+
+setTimeout(sendHeartbeat, 24000);

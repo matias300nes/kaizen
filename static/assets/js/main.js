@@ -33,10 +33,10 @@
     {
       nombre: "claudio",
       horarios: [
-        { dia: "lunes", horario: [{ entrada: "8:30", salida: "17:30" }] },
-        { dia: "martes", horario: [{ entrada: "8:30", salida: "17:30" }] },
-        { dia: "miercoles", horario: [{ entrada: "8:30", salida: "17:30" }] },
-        { dia: "jueves", horario: [{ entrada: "8:30", salida: "17:30" }] },
+        { dia: "lunes", horario: [{ entrada: "16:00", salida: "20:00" }] },
+        { dia: "martes", horario: [{ entrada: "16:00", salida: "20:00" }] },
+        { dia: "miercoles", horario: [{ entrada: "16:00", salida: "20:00" }] },
+        { dia: "jueves", horario: [{ entrada: "16:00", salida: "20:00" }] },
         { dia: "viernes", horario: [] },
       ],
     },
@@ -380,7 +380,7 @@
     case "Martes":
       setHorarios(1);
       break;
-    case "Miércoles":
+    case "Miercoles":
       setHorarios(2);
       break;
     case "Jueves":
