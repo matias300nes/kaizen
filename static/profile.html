@@ -170,305 +170,822 @@
                 </div>
               </div>
               <div class="card-body p-3">
-                <ul class="list-group">
-                  <h6
-                    class="text-uppercase text-body text-xs font-weight-bolder"
-                  >
-                    lunes
-                  </h6>
-                  <li class="list-group-item border-0 px-0">
-                    <div class="row ps-3">
-                      <div class="col-lg-2">
-                        <div class="form-check form-switch ps-0">
-                          <input
-                            class="form-check-input ms-auto mt-2"
-                            type="checkbox"
-                            id="check-horario-lunes"
-                            value="first_checkbox"
-                          />
+                <form id="form-horarios">
+                  <ul class="list-group">
+                    <h6
+                      class="text-uppercase text-body text-xs font-weight-bolder"
+                    >
+                      lunes
+                    </h6>
+                    <li class="list-group-item border-0 px-0">
+                      <div class="row ps-3">
+                        <div class="col-lg-2">
+                          <div class="form-check form-switch ps-0">
+                            <input
+                              class="form-check-input ms-auto mt-2"
+                              type="checkbox"
+                              id="check-horario-lunes"
+                              value="first_checkbox"
+                            />
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="lunes-desde1"
+                              class="form-control me-3"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="lunes-hasta1"
+                              class="form-control"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-lg-1 text-center">
+                          <i
+                            class="fas fa-plus ms-auto text-dark cursor-pointer"
+                            id="agregar-horario-lunes"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Agregar horario"
+                            style="margin-top: 11px"
+                          ></i>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="lunes-desde2"
+                              class="form-control me-3 hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="lunes-hasta2"
+                              class="form-control hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="lunes-desde1"
-                          />
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="lunes-hasta1"
-                          />
+                    </li>
+                    <h6
+                      class="text-uppercase text-body text-xs font-weight-bolder"
+                    >
+                      martes
+                    </h6>
+                    <li class="list-group-item border-0 px-0">
+                      <div class="row ps-3">
+                        <div class="col-lg-2">
+                          <div class="form-check form-switch ps-0">
+                            <input
+                              class="form-check-input ms-auto mt-2"
+                              type="checkbox"
+                              id="check-horario-martes"
+                              value="first_checkbox"
+                            />
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="martes-desde1"
+                              class="form-control me-3"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="martes-hasta1"
+                              class="form-control"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-lg-1 text-center">
+                          <i
+                            class="fas fa-plus ms-auto text-dark cursor-pointer"
+                            id="agregar-horario-martes"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Agregar horario"
+                            style="margin-top: 11px"
+                          ></i>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="martes-desde2"
+                              class="form-control me-3 hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="martes-hasta2"
+                              class="form-control hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-lg-1 text-center">
-                        <i class="fas fa-plus ms-auto text-dark cursor-pointer" id="agregar-horario-lunes" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar horario" style="margin-top: 11px;"></i>
-                      </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3 hidden"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="lunes-desde2"
-                          />
-                          <input
-                            type="text"
-                            class="form-control hidden"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="lunes-hasta2"
-                          />
+                    </li>
+                    <h6
+                      class="text-uppercase text-body text-xs font-weight-bolder"
+                    >
+                      miercoles
+                    </h6>
+                    <li class="list-group-item border-0 px-0">
+                      <div class="row ps-3">
+                        <div class="col-lg-2">
+                          <div class="form-check form-switch ps-0">
+                            <input
+                              class="form-check-input ms-auto mt-2"
+                              type="checkbox"
+                              id="check-horario-miercoles"
+                              value="first_checkbox"
+                            />
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="miercoles-desde1"
+                              class="form-control me-3"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="miercoles-hasta1"
+                              class="form-control"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-lg-1 text-center">
+                          <i
+                            class="fas fa-plus ms-auto text-dark cursor-pointer"
+                            id="agregar-horario-miercoles"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Agregar horario"
+                            style="margin-top: 11px"
+                          ></i>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="miercoles-desde2"
+                              class="form-control me-3 hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="miercoles-hasta2"
+                              class="form-control hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                  <h6
-                    class="text-uppercase text-body text-xs font-weight-bolder"
-                  >
-                    martes
-                  </h6>
-                  <li class="list-group-item border-0 px-0">
-                    <div class="row ps-3">
-                      <div class="col-lg-2">
-                        <div class="form-check form-switch ps-0">
-                          <input
-                            class="form-check-input ms-auto mt-2"
-                            type="checkbox"
-                            id="check-horario-martes"
-                            value="first_checkbox"
-                          />
+                    </li>
+                    <h6
+                      class="text-uppercase text-body text-xs font-weight-bolder"
+                    >
+                      jueves
+                    </h6>
+                    <li class="list-group-item border-0 px-0">
+                      <div class="row ps-3">
+                        <div class="col-lg-2">
+                          <div class="form-check form-switch ps-0">
+                            <input
+                              class="form-check-input ms-auto mt-2"
+                              type="checkbox"
+                              id="check-horario-jueves"
+                              value="first_checkbox"
+                            />
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="jueves-desde1"
+                              class="form-control me-3"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="jueves-hasta1"
+                              class="form-control"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-lg-1 text-center">
+                          <i
+                            class="fas fa-plus ms-auto text-dark cursor-pointer"
+                            id="agregar-horario-jueves"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Agregar horario"
+                            style="margin-top: 11px"
+                          ></i>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="jueves-desde2"
+                              class="form-control me-3 hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="jueves-hasta2"
+                              class="form-control hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="martes-desde1"
-                          />
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="martes-hasta1"
-                          />
+                    </li>
+                    <h6
+                      class="text-uppercase text-body text-xs font-weight-bolder"
+                    >
+                      viernes
+                    </h6>
+                    <li class="list-group-item border-0 px-0">
+                      <div class="row ps-3">
+                        <div class="col-lg-2">
+                          <div class="form-check form-switch ps-0">
+                            <input
+                              class="form-check-input ms-auto mt-2"
+                              type="checkbox"
+                              id="check-horario-viernes"
+                              value="first_checkbox"
+                            />
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="viernes-desde1"
+                              class="form-control me-3"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="viernes-hasta1"
+                              class="form-control"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-lg-1 text-center">
+                          <i
+                            class="fas fa-plus ms-auto text-dark cursor-pointer"
+                            id="agregar-horario-viernes"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Agregar horario"
+                            style="margin-top: 11px"
+                          ></i>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex">
+                            <select
+                              name=""
+                              id="viernes-desde2"
+                              class="form-control me-3 hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                            <select
+                              name=""
+                              id="viernes-hasta2"
+                              class="form-control hidden"
+                            >
+                              <option value="8:00">8:00</option>
+                              <option value="8:30">8:30</option>
+                              <option value="9:00">9:00</option>
+                              <option value="9:30">9:30</option>
+                              <option value="10:00">10:00</option>
+                              <option value="10:30">10:30</option>
+                              <option value="11:00">11:00</option>
+                              <option value="11:30">11:30</option>
+                              <option value="12:00">12:00</option>
+                              <option value="12:30">12:30</option>
+                              <option value="13:00">13:00</option>
+                              <option value="13:30">13:30</option>
+                              <option value="14:00">14:00</option>
+                              <option value="14:30">14:30</option>
+                              <option value="15:00">15:00</option>
+                              <option value="15:30">15:30</option>
+                              <option value="16:00">16:00</option>
+                              <option value="16:30">16:30</option>
+                              <option value="17:00">17:00</option>
+                              <option value="17:30">17:30</option>
+                              <option value="18:00">18:00</option>
+                              <option value="18:30">18:30</option>
+                              <option value="19:00">19:00</option>
+                              <option value="19:30">19:30</option>
+                              <option value="20:00">20:00</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-lg-1 text-center">
-                        <i class="fas fa-plus ms-auto text-dark cursor-pointer" id="agregar-horario-martes" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar horario" style="margin-top: 11px;"></i>
-                      </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3 hidden"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="martes-desde2"
-                          />
-                          <input
-                            type="text"
-                            class="form-control hidden"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="martes-hasta2"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <h6
-                    class="text-uppercase text-body text-xs font-weight-bolder"
-                  >
-                    miercoles
-                  </h6>
-                  <li class="list-group-item border-0 px-0">
-                    <div class="row ps-3">
-                      <div class="col-lg-2">
-                        <div class="form-check form-switch ps-0">
-                          <input
-                            class="form-check-input ms-auto mt-2"
-                            type="checkbox"
-                            id="check-horario-miercoles"
-                            value="first_checkbox"
-                          />
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="miercoles-desde1"
-                          />
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="miercoles-hasta1"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-1 text-center">
-                        <i class="fas fa-plus ms-auto text-dark cursor-pointer" id="agregar-horario-miercoles" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar horario" style="margin-top: 11px;"></i>
-                      </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3 hidden"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="miercoles-desde2"
-                          />
-                          <input
-                            type="text"
-                            class="form-control hidden"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="miercoles-hasta2"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <h6
-                    class="text-uppercase text-body text-xs font-weight-bolder"
-                  >
-                    jueves
-                  </h6>
-                  <li class="list-group-item border-0 px-0">
-                    <div class="row ps-3">
-                      <div class="col-lg-2">
-                        <div class="form-check form-switch ps-0">
-                          <input
-                            class="form-check-input ms-auto mt-2"
-                            type="checkbox"
-                            id="check-horario-jueves"
-                            value="first_checkbox"
-                          />
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="jueves-desde1"
-                          />
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="jueves-hasta1"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-1 text-center">
-                        <i class="fas fa-plus ms-auto text-dark cursor-pointer" id="agregar-horario-jueves" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar horario" style="margin-top: 11px;"></i>
-                      </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3 hidden"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="jueves-desde2"
-                          />
-                          <input
-                            type="text"
-                            class="form-control hidden"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="jueves-hasta2"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <h6
-                    class="text-uppercase text-body text-xs font-weight-bolder"
-                  >
-                    viernes
-                  </h6>
-                  <li class="list-group-item border-0 px-0">
-                    <div class="row ps-3">
-                      <div class="col-lg-2">
-                        <div class="form-check form-switch ps-0">
-                          <input
-                            class="form-check-input ms-auto mt-2"
-                            type="checkbox"
-                            id="check-horario-viernes"
-                            value="first_checkbox"
-                          />
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="viernes-desde1"
-                          />
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="viernes-hasta1"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-1 text-center">
-                        <i class="fas fa-plus ms-auto text-dark cursor-pointer" id="agregar-horario-viernes" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar horario" style="margin-top: 11px;"></i>
-                      </div>
-                      <div class="col">
-                        <div class="d-flex">
-                          <input
-                            type="text"
-                            class="form-control me-3 hidden"
-                            placeholder="Desde"
-                            aria-label="User"
-                            id="viernes-desde2"
-                          />
-                          <input
-                            type="text"
-                            class="form-control hidden"
-                            placeholder="Hasta"
-                            aria-label="User"
-                            id="viernes-hasta2"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <button
-                    class="btn bg-gradient-dark mt-3 mb-0"
-                    type="button"
-                    id="saveHorarios"
-                  >
-                    Guardar
-                  </button>
-                </ul>
+                    </li>
+                    <button
+                      class="btn bg-gradient-dark mt-3 mb-0"
+                      type="submit"
+                      id="saveHorarios"
+                    >
+                      Guardar
+                    </button>
+                  </ul>
+                </form>
               </div>
             </div>
           </div>
