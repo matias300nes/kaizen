@@ -261,4 +261,16 @@ function setHorarios(chimangos) {
   });
 }
 
+var testBtn = document.getElementById("test-btn");
+testBtn.onclick = function () {
+  clearHorarios();
+};
+
+function clearHorarios(){
+  var horarios = document.getElementsByClassName("hour-container");
+  for (let index = 0; index < horarios.length; index++) {
+    horarios[index].innerHTML = "";
+  }
+}
+
 setHorarios();

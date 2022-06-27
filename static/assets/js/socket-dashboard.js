@@ -68,6 +68,7 @@ window.onload = () => {
     });
 
     socket.on('refreshDashboard', ()=>{
+        clearHorarios();
         getChimangos().then((data) => {
             setHorarios(data);
         });
