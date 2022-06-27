@@ -80,8 +80,11 @@
             viernes: horariosViernes,
           });
         });
+      })
+      .then(()=>{
+        refreshDashboard();
         alert("Horarios actualizados");
-      });
+      })
 
     // db.collection("Chimangos")
     //   .doc(nombre)

@@ -3,17 +3,17 @@
     "static/assets/css/style.css": [
       {
         "id": "166aea68-d93f-4c76-b8dc-4dbed899f060",
-        "line": 3851,
-        "version": 937,
-        "index": 100182
+        "line": 3855,
+        "version": 938,
+        "index": 100278
       }
     ],
     "static/profile.html": [
       {
         "id": "d63fc736-93ed-47d3-8a94-2970c846c075",
-        "line": 60,
-        "version": 289,
-        "index": 2807
+        "line": 3,
+        "version": 290,
+        "index": 33
       }
     ]
   }

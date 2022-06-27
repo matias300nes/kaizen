@@ -19,6 +19,10 @@ function Send(){
     }
 }
 
+function refreshDashboard(){
+    socket.emit("refreshDashboard");
+}
+
 function delayReset(){
     delay = true;
 }
@@ -40,7 +44,7 @@ window.onload = () => {
     document.getElementById("btnSendMessage").addEventListener('click',Send)
 
     socket.on("join", function(user){
-        console.log("user joined")
+        console.log(`${user.username} joined`)
         /* chatRoom.innerHTML = "Chatroom : " + room; */
     })
 

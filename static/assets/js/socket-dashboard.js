@@ -67,6 +67,12 @@ window.onload = () => {
         console.log("pong")
     });
 
+    socket.on('refreshDashboard', ()=>{
+        getChimangos().then((data) => {
+            setHorarios(data);
+        });
+    })
+
     Connect()
 }
 

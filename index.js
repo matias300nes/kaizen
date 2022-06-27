@@ -30,12 +30,17 @@ io.on('connection', function(socket) {
 		}
 	})
 
+    socket.on("refreshDashboard", () => {
+        io.sockets.emit("refreshDashboard");
+    })
+
 	socket.on("send", function(message) {
 		response = {
 			user: users[socket.id],
 			message: message
 		}
-		io.in(rooms[socket.id]).emit("recieve", response);
+		/* io.in(rooms[socket.id]).emit("recieve", response); */
+        io.sockets.emit("recieve", response);
 	})
 
 	socket.on("recieve", function(message) {
