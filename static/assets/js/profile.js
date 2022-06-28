@@ -82,8 +82,8 @@
         });
       })
       .then(()=>{
-        alert("Horarios actualizados");
         refreshDashboard();
+        alert("Horarios actualizados");
       })
 
     // db.collection("Chimangos")
