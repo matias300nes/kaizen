@@ -82,10 +82,15 @@ function execCommand(command, parameters){
         /* cambia la musica del reproductor  */
         case "$play":
             musicIntput = document.getElementById("video-link");
-            playButton = document.getElementById("cambiar-video");
-
-            musicIntput.value = parameters[0];
-            playButton.click();
+            changeButton = document.getElementById("cambiar-video");
+            playButton = document.getElementsByClassName("ytp-play-button");
+            console.log(playButton);
+            if (parameters[0]){
+                musicIntput.value = parameters[0];
+                changeButton.click();
+            }else{
+                playButton.click(); /* No funciona */
+            }
             break;
         case "$playWav":
             audioPlayer = document.getElementById("AudioPlayer");
@@ -103,5 +108,11 @@ function execCommand(command, parameters){
             msg.lang = "es";
             window.speechSynthesis.speak(msg);
             break;
+        case "$reload":
+            location.reload();
+            break;
+        case "$lavarPlatos":
+            btnLavar = document.querySelector("#sortearLavaplatos");
+            btnLavar.click();
     }
 }
