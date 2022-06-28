@@ -3841,6 +3841,15 @@ a {
     font-weight: bold;
 }
 
+.defaultShadow{
+  box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+
+.nav-active{
+  color: #344767 !important;
+    background-color: #fff !important;
+    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}	
 
 @keyframes hide {
     to {
