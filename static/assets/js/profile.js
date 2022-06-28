@@ -29,6 +29,69 @@
     setHorarios(data[0]);
   });
 
+  function getVideos() {
+    return new Promise((resolve, reject) => {
+      db.collection("Videos")
+        .get()
+        .then((snapshot) => {
+          let data = [];
+          snapshot.forEach((doc) => {
+            data.push(doc.data());
+          });
+          resolve(data);
+        });
+    });
+  }
+
+  getVideos().then((data) => {
+    setVideos(data);
+  });
+
+  function setVideos(data){
+    var listaVideos = document.getElementById("lista-videos");
+    console.log(listaVideos)
+    //create new ul and li for each video
+    data.forEach((element) => {
+      var li = document.createElement("li");
+      li.className = "list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg";
+      var div = document.createElement("div");
+      div.className = "d-flex align-items-center";
+      var button = document.createElement("button");
+      button.className = "btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center";
+      button.setAttribute("id", "video-"+element.link);
+      var icon = document.createElement("i");
+      icon.className = "fa fa-play";
+      var div2 = document.createElement("div");
+      div2.className = "d-flex flex-column";
+      var h6 = document.createElement("h6");
+      h6.className = "mb-1 text-dark text-sm";
+      h6.innerHTML = element.nombre;
+      var div3 = document.createElement("div");
+      div3.className = "d-flex flex-column";
+      
+      div2.appendChild(h6);
+      button.appendChild(icon);
+      div3.appendChild(button);
+      div.appendChild(div3);
+      div.appendChild(div2);
+      li.appendChild(div);
+
+      listaVideos.appendChild(li);
+
+      button = document.getElementById("video-"+element.link);
+      button.addEventListener("click", () => {
+        console.log(element.link);
+        var campoMsg = document.getElementById("ComposedMessage");
+        campoMsg.value = "$play " + element.link;
+        var btnSend = document.getElementById("btnSendMessage");
+        btnSend.click();
+      });
+    }
+    );
+  }
+
+
+
   var dias = ["lunes", "martes", "miercoles", "jueves", "viernes"];
 
   function toggleDisabled(dia) {

@@ -26890,3 +26890,9 @@ pre[class*="language-"] {
   max-height: 381px;
   overflow: auto;
 }
+
+.music-container{
+  height: 381px;
+  max-height: 381px;
+  overflow: auto;
+}	
