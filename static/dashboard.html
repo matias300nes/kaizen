@@ -397,6 +397,8 @@
                   class="full-background"
                   id="video"
                 ></iframe>
+                <input type="hidden" id="video-title" value="" />
+                <input type="hidden" id="video-author" value="" />
               </div>
               <div class="input-group mt-3">
                 <span class="input-group-text text-body"
@@ -684,23 +686,63 @@
           (memeImgSRC = data.data), memes;
         });
 
+      // global variable for the player
+      var player;
+
+      // this function gets called when API is ready to use
+      function onYouTubePlayerAPIReady() {
+        // create the global player from the specific iframe (#video)
+        player = new YT.Player("video", {
+          events: {
+            // call this function when player is ready to use
+            onReady: onPlayerReady,
+          },
+        });
+      }
+
+      function onPlayerReady(event) {
+        document.getElementById("video-title").value =
+          player.getVideoData().title;
+        document.getElementById("video-author").value =
+          player.getVideoData().author;
+      }
+
       var changeButton = document.getElementById("cambiar-video");
       changeButton.addEventListener("click", function () {
         var video = document.getElementById("video");
-        var newLink = document.getElementById("video-link").value;
+        var currentLink = document.getElementById("video-link").value;
+        var newLink = currentLink;
         if (newLink == "") {
           var oldLink = localStorage.getItem("video");
           video.src = oldLink;
         } else {
-          newLink = newLink.split("=");
+          newLink = newLink.split("v=");
           newLink =
             "https://www.youtube.com/embed/" +
             newLink[1] +
             "?controls=1&enablejsapi=1&html5=1&autoplay=1";
           video.src = newLink;
+          console.log(newLink);
           localStorage.setItem("video", newLink);
         }
-
+        setTimeout(function () {
+          var title = document.getElementById("video-title").value;
+          if (title !== "") {
+            //save into videos collection firebase
+            var db = firebase.firestore();
+            db.collection("Videos")
+              .add({
+                nombre: title,
+                link: currentLink,
+              })
+              .then(function (docRef) {
+                console.log("Document written with ID: ", docRef.id);
+              })
+              .catch(function (error) {
+                console.error("Error adding document: ", error);
+              });
+          }
+        }, 3000);
         document.getElementById("video-link").value = "";
       });
 
@@ -711,12 +753,17 @@
         memeImg.style.backgroundImage =
           "url(" + memeImgSRC.memes[random].url + ")";
       });
+
+      // Inject YouTube API script
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
 
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-firestore.js"></script>
-    
 
     <script src="assets/js/auth.js"></script>
     <script src="socket.io/socket.io.js"></script>
@@ -730,6 +777,6 @@
     <script src="assets/js/joke.js"></script>
     <script src="assets/js/db.js"></script>
     <script src="assets/js/chimangos.js"></script>
-      <script src="assets/js/socket-dashboard.js"></script>
+    <script src="assets/js/socket-dashboard.js"></script>
   </body>
 </html>

@@ -6,57 +6,56 @@ var currentUser;
 var messages;
 var delay = true;
 
-function Connect(){
-    socket.emit("join", room, currentUser);
+function Connect() {
+  socket.emit("join", room, currentUser);
 }
 
-function Send(){
-    if (delay && messageInput.value.replace(/\s/g, "") != ""){
-        delay = false;
-        setTimeout(delayReset, 1000);
-        socket.emit("send", messageInput.value);
-        messageInput.value = "";
-    }
+function Send() {
+  if (delay && messageInput.value.replace(/\s/g, "") != "") {
+    delay = false;
+    setTimeout(delayReset, 1000);
+    socket.emit("send", messageInput.value);
+    messageInput.value = "";
+  }
 }
 
-function refreshDashboard(){
-    socket.emit("refreshDashboard");
+function refreshDashboard() {
+  socket.emit("refreshDashboard");
 }
 
-function delayReset(){
-    delay = true;
+function delayReset() {
+  delay = true;
 }
 
 window.onload = () => {
-    socket = io();
-    messageInput = document.getElementById("ComposedMessage");
-    currentUser = JSON.parse(localStorage.getItem('user'));
-    room = "Main";
-    dingSound = document.getElementById("AudioPlayer");
-    messages =  document.getElementById("MessagesContainer")
-    
-    function sendForm(event) {
-        event.preventDefault();
+  socket = io();
+  messageInput = document.getElementById("ComposedMessage");
+  currentUser = JSON.parse(localStorage.getItem("user"));
+  room = "Main";
+  dingSound = document.getElementById("AudioPlayer");
+  messages = document.getElementById("MessagesContainer");
+
+  function sendForm(event) {
+    event.preventDefault();
+  }
+
+  document.getElementById("form-msg").addEventListener("submit", sendForm);
+
+  document.getElementById("btnSendMessage").addEventListener("click", Send);
+
+  socket.on("join", function (user) {
+    console.log(`${user.username} joined`);
+    /* chatRoom.innerHTML = "Chatroom : " + room; */
+  });
+
+  socket.on("recieve", function (response) {
+    var current = new Date();
+    var time = `${current.getHours()}:${current.getMinutes()}`;
+    if (document.getElementById("noHayMensajes")) {
+      document.getElementById("noHayMensajes").remove();
     }
-    
-    document.getElementById("form-msg").addEventListener('submit', sendForm);
-
-    document.getElementById("btnSendMessage").addEventListener('click',Send)
-
-    socket.on("join", function(user){
-        console.log(`${user.username} joined`)
-        /* chatRoom.innerHTML = "Chatroom : " + room; */
-    })
-
-
-    socket.on("recieve", function(response){
-        var current = new Date();
-        var time = `${current.getHours()}:${current.getMinutes()}`;
-        if(document.getElementById("noHayMensajes")){
-            document.getElementById("noHayMensajes").remove();
-        }
-        var child = document.createElement('li');
-        child.innerHTML = `
+    var child = document.createElement("li");
+    child.innerHTML = `
             <div class="avatar me-3">
                 <img src="assets/img/chimangos/${response.user.username}.jpg" alt="kal" class="border-radius-lg shadow">
             </div>
@@ -65,20 +64,25 @@ window.onload = () => {
                 <p class="mb-0 text-xs">${response.message}</p>
             </div>
             <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">${time}</a>
-        `
-        child.classList.add("list-group-item", "border-0", "d-flex", "align-items-center", "px-0", "mb-2")
-        messages.appendChild(child)
-        messages.scrollTop = messages.scrollHeight;
-        dingSound.currentTime = 0;
-        dingSound.play();
-      
-    })
-    
-    socket.on('ping', function(data){
-      socket.emit('pong', {beat: 1});
-        console.log("pong")
-    });
+        `;
+    child.classList.add(
+      "list-group-item",
+      "border-0",
+      "d-flex",
+      "align-items-center",
+      "px-0",
+      "mb-2"
+    );
+    messages.appendChild(child);
+    messages.scrollTop = messages.scrollHeight;
+    dingSound.currentTime = 0;
+    dingSound.play();
+  });
 
-    Connect()
-}
+  socket.on("ping", function (data) {
+    socket.emit("pong", { beat: 1 });
+    console.log("pong");
+  });
 
+  Connect();
+};
