@@ -730,16 +730,24 @@
           if (title !== "") {
             //save into videos collection firebase
             var db = firebase.firestore();
+            //check if video already exists
             db.collection("Videos")
-              .add({
-                nombre: title,
-                link: currentLink,
-              })
-              .then(function (docRef) {
-                console.log("Document written with ID: ", docRef.id);
-              })
-              .catch(function (error) {
-                console.error("Error adding document: ", error);
+              .where("link", "==", currentLink)
+              .get()
+              .then(function (querySnapshot) {
+                if (querySnapshot.empty) {
+                  db.collection("videos")
+                    .add({
+                      nombre: title,
+                      link: currentLink,
+                    })
+                    .then(function (docRef) {
+                      console.log("Document written with ID: ", docRef.id);
+                    })
+                    .catch(function (error) {
+                      console.error("Error adding document: ", error);
+                    });
+                }
               });
           }
         }, 3000);
