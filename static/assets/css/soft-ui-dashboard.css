@@ -6640,6 +6640,24 @@ fieldset:disabled .btn {
   opacity: 0.75;
 }
 
+.btn-close-modal {
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  padding: 0.25em 0.25em;
+  color: var(--bs-primary);
+  background: transparent;
+  border: 0;
+  display: flex;
+   align-items: center;
+}
+
+.btn-close-modal:hover {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.75;
+}
+
 .btn-close:focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(203, 12, 159, 0.25);

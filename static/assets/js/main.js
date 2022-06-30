@@ -164,11 +164,11 @@
   var sortLavaPlatos = document.getElementById("sortearLavaplatos");
   sortLavaPlatos.addEventListener("click", function () {
     var resultado = getRandomInt(0, chimangos.length - 1);
-    alert(
-      "El chimango que hoy lava los platos es: " + chimangos[resultado].nombre
-    );
-
+    
     var todayLavaplatos = [chimangos[resultado].nombre, dayName];
+    
+   
+    cuentaAtras(chimangos[resultado].nombre);
 
     if (localStorage.getItem("lavaplatos") !== null) {
       document.getElementById("icono-bacha").remove();
@@ -178,6 +178,32 @@
 
     getLavaplatos();
   });
+
+  function cuentaAtras(result){
+    var modalCountdown = document.getElementById("modal-lavar-countdown");
+    var modalResult = document.getElementById("modal-lavar-result");
+    var btnClose = document.getElementById("btn-close-sorteo");
+    modalCountdown.innerHTML = "3";
+    modalResult.innerHTML = "";
+    var nombreMay = result.charAt(0).toUpperCase() + result.slice(1);
+    var initialTime = 3;
+    var interval = setInterval(function () {
+      if(initialTime > 0){
+        modalCountdown.innerHTML = initialTime;
+        initialTime--;
+      }else{
+        modalCountdown.innerHTML = "Le toca lavar a ";
+        modalResult.innerHTML = nombreMay;
+        clearInterval(interval);
+      }
+    }, 1000);
+    setTimeout(function () {
+      modalCountdown.innerHTML = "";
+      modalResult.innerHTML = "";
+      btnClose.click();
+      clearInterval(interval);
+    }, 10000);
+  }
 
   document.getElementById("nombreDia").innerHTML = dayName;
   

@@ -27,6 +27,7 @@
     ></script>
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/soft-ui-dashboard.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link
       id="pagestyle"
@@ -88,6 +89,7 @@
                       class="btn bg-gradient-primary"
                       type="button"
                       id="sortearLavaplatos"
+                      data-bs-toggle="modal" data-bs-target="#exampleModal"
                     >
                       Sortear quien lava los platos
                       <i class="fa-solid fa-shuffle ms-2"></i>
@@ -455,6 +457,21 @@
             </div>
           </div>
         </div>
+
+        <!-- Modal Lavaplatos -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Resultado del sorteo</h5>
+        <button type="button" class="btn-close-modal" id="btn-close-sorteo" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close text-primary"></i></button>
+      </div>
+      <div class="modal-body text-center" id="modal-lavar-platos">
+        <h2 id="modal-lavar-countdown"></h2><h2 id="modal-lavar-result" class="text-gradient text-primary"></h2>
+      </div>
+    </div>
+  </div>
+</div>
 
         <!-- render toasts -->
         <div id="toastContainer"></div>
