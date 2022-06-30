@@ -26896,3 +26896,36 @@ pre[class*="language-"] {
   max-height: 280px;
   overflow: auto;
 }	
+
+.music-container::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.music-container::-webkit-scrollbar:vertical {
+  width: 6px;
+}
+
+.music-container::-webkit-scrollbar-button:increment,.music-container::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.music-container::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.music-container::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 6px;
+  transition: background-color 0.2s linear, width 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+  width: 6px;
+  /* there must be 'right' for ps__thumb-y */
+  right: 2px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.music-container::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+
