@@ -5,6 +5,7 @@ var dingSound;
 var currentUser;
 var messages;
 var delay = true;
+var vMouse;
 
 function Connect() {
   socket.emit("join", room, currentUser);
@@ -23,6 +24,7 @@ window.onload = () => {
   currentUser = JSON.parse(localStorage.getItem("user"));
   room = "Main";
   dingSound = document.getElementById("AudioPlayer");
+    vMouse = document.querySelector("#vMouse")
 
   socket.on("join", function (user) {
     console.log("user joined");
@@ -70,6 +72,11 @@ window.onload = () => {
       setHorarios(data);
     });
   });
+
+    socket.on("mouseMove", (x,y) => {
+        vMouse.style.top = `${y}px`
+        vMouse.style.left = `${x}px`
+    })
 
   Connect();
 };

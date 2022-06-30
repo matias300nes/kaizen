@@ -37,6 +37,13 @@
 
   <body class="g-sidenav-show bg-gray-100">
     <audio id="AudioPlayer" src="assets/audio/Ding.mp3"></audio>
+    <img id="vMouse" 
+        style="
+            position: absolute;
+            z-index: 99999;
+        "
+        src="assets/img/alberto-mouse.png"
+    >
     <main
       class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
     >
@@ -736,7 +743,7 @@
               .get()
               .then(function (querySnapshot) {
                 if (querySnapshot.empty) {
-                  db.collection("videos")
+                  db.collection("Videos")
                     .add({
                       nombre: title,
                       link: currentLink,
