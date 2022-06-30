@@ -6,6 +6,7 @@ var currentUser;
 var messages;
 var delay = true;
 var vMouse;
+var mouseIsMoving;
 
 function Connect() {
   socket.emit("join", room, currentUser);
@@ -17,6 +18,10 @@ function delayReset() {
 
 function removeToast(toast) {
   toast.remove();
+}
+
+function mouseTimeout(){
+    mouseIsMoving = false
 }
 
 window.onload = () => {
@@ -74,8 +79,10 @@ window.onload = () => {
   });
 
     socket.on("mouseMove", (x,y) => {
+        mouseIsMoving = true
         vMouse.style.top = `${y}px`
         vMouse.style.left = `${x}px`
+        setInterval(mouseTimeout, 5000)
     })
 
     socket.on("mouseClick", (x,y) => {
@@ -124,3 +131,34 @@ function execCommand(command, parameters) {
       btnLavar.click();
   }
 }
+
+var x = Math.floor(Math.random() * window.innerWidth);
+var y = Math.floor(Math.random() * window.innerHeight);
+var vx = Math.floor(Math.random() * 2);
+var vy = Math.floor(Math.random() * 4);
+var radius = 20;
+
+timer = window.setInterval(function(){
+    // Conditions sso that the ball bounces
+    // from the edges
+    if(!mouseIsMoving){
+        if (radius + x > window.innerWidth)
+        vx = 0 - vx;
+
+        if (x - radius < 0)
+            vx = 0 - vx;
+    
+        if (y + radius > window.innerHeight)
+            vy = 0 - vy;
+    
+        if (y - radius < 0)
+            vy = 0 - vy;
+    
+        x = x + vx;
+        y = y + vy;
+    
+        vMouse.style.top = `${y}px`
+        vMouse.style.left = `${x}px`
+    }
+    
+}, 20);

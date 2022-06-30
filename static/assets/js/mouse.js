@@ -9,15 +9,6 @@ function Connect() {
   socket.emit("join", room, currentUser);
 }
 
-function Send() {
-  if (delay && messageInput.value.replace(/\s/g, "") != "") {
-    delay = false;
-    setTimeout(delayReset, 1000);
-    socket.emit("send", messageInput.value);
-    messageInput.value = "";
-  }
-}
-
 function delayReset() {
   delay = true;
 }
