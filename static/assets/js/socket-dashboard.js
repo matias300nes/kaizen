@@ -5,8 +5,9 @@ var dingSound;
 var currentUser;
 var messages;
 var delay = true;
-var vMouse;
-var mouseIsMoving;
+var vMouse = document.querySelector("#vMouse");
+var mouseIsMoving = false;
+var mouseTimer;
 
 function Connect() {
   socket.emit("join", room, currentUser);
@@ -20,8 +21,10 @@ function removeToast(toast) {
   toast.remove();
 }
 
-function mouseTimeout(){
-    mouseIsMoving = false
+const runMouseTimer = () => {
+    mouseTimer = window.setTimeout(() => {
+        mouseIsMoving = false
+    }, 5000)
 }
 
 window.onload = () => {
@@ -29,7 +32,6 @@ window.onload = () => {
   currentUser = JSON.parse(localStorage.getItem("user"));
   room = "Main";
   dingSound = document.getElementById("AudioPlayer");
-    vMouse = document.querySelector("#vMouse")
 
   socket.on("join", function (user) {
     console.log("user joined");
@@ -82,7 +84,8 @@ window.onload = () => {
         mouseIsMoving = true
         vMouse.style.top = `${y}px`
         vMouse.style.left = `${x}px`
-        setInterval(mouseTimeout, 5000)
+        clearTimeout(mouseTimer)
+        runMouseTimer()
     })
 
     socket.on("mouseClick", (x,y) => {
@@ -159,6 +162,11 @@ timer = window.setInterval(function(){
     
         vMouse.style.top = `${y}px`
         vMouse.style.left = `${x}px`
+    }else{
+        y = parseInt(vMouse.style.top)
+        x = parseInt(vMouse.style.left)
+        vx = 0 - vx;
+        vy = 0 - vy;
     }
     
 }, 20);
