@@ -78,6 +78,10 @@ window.onload = () => {
         vMouse.style.left = `${x}px`
     })
 
+    socket.on("mouseClick", (x,y) => {
+        document.elementsFromPoint(x,y)[1].click()
+    })
+
   Connect();
 };
 
