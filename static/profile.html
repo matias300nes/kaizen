@@ -1001,7 +1001,22 @@
           <div class="col-12 col-xl-4">
             <div class="card h-100">
               <div class="card-header pb-0 p-3">
-                <h6 class="mb-0">Chat</h6>
+                <div class="row">
+                  <div class="col-md-8 d-flex align-items-center">
+                    <h6 class="mb-0">Chat</h6>
+                  </div>
+                  <div class="col-md-4 text-end">
+                    <a href="javascript:;">
+                      <i
+                      data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        class="fas fa-info text-secondary text-sm"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Ver comandos"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
               </div>
               <div class="card-body p-3">
                 <ul class="list-group">
@@ -1038,6 +1053,22 @@
         </div>
       </div>
     </div>
+
+            <!-- Modal Comandos -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Listado de comandos</h5>
+        <button type="button" class="btn-close-modal" id="btn-close-sorteo" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close text-primary"></i></button>
+      </div>
+      <div class="modal-body text-center" id="modal-lavar-platos">
+        <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"></i>$play - Reproducir un video de YouTube</a>
+        <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"></i>$lavarPlatos - Sortear quien lava los platos</a>
+      </div>
+    </div>
+  </div>
+</div>
 
     <audio id="AudioPlayer" src="assets/audio/Ding.mp3"></audio>
 

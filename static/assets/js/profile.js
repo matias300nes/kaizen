@@ -50,7 +50,6 @@
   function setVideos(data){
     var listaVideos = document.getElementById("lista-videos");
     console.log(listaVideos)
-    //create new ul and li for each video
     data.forEach((element) => {
       var li = document.createElement("li");
       li.className = "list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg";
