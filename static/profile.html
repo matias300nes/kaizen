@@ -1008,11 +1008,20 @@
                   <div class="col-md-4 text-end">
                     <a href="javascript:;">
                       <i
-                      data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      data-bs-toggle="modal" data-bs-target="#comandosModal"
                         class="fas fa-info text-secondary text-sm"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Ver comandos"
+                      ></i>
+                    </a>
+                    <a href="javascript:;">
+                      <i
+                      data-bs-toggle="modal" data-bs-target="#errorModal"
+                        class="hidden"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="error"
                       ></i>
                     </a>
                   </div>
@@ -1055,16 +1064,60 @@
     </div>
 
             <!-- Modal Comandos -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="comandosModal" tabindex="-1" aria-labelledby="comandosModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Listado de comandos</h5>
+        <h5 class="modal-title" id="comandosModalLabel">Listado de comandos</h5>
         <button type="button" class="btn-close-modal" id="btn-close-sorteo" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close text-primary"></i></button>
       </div>
       <div class="modal-body text-center" id="modal-lavar-platos">
         <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"></i>$play - Reproducir un video de YouTube</a>
         <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"></i>$lavarPlatos - Sortear quien lava los platos</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Error</h5>
+        <button type="button" class="btn-close-modal" id="btn-close-sorteo" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close text-primary"></i></button>
+      </div>
+      <div class="modal-body text-center" id="modal-lavar-platos">
+        <h3>Que haces</h3>
+        <img src="assets/img/chimangos/tomi.jpg" class="w-50" alt="">
+        <h3>La re concha de tu madre</h3>
+        <button
+                    class="btn bg-gradient-dark mt-3 mb-0"
+                    data-bs-dismiss="modal" aria-label="Close"
+                  >
+                  Perdón😞
+                  </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exitoModal" tabindex="-1" aria-labelledby="exitoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exitoModalLabel">Datos guardados</h5>
+        <button type="button" class="btn-close-modal" id="btn-close-sorteo" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close text-primary"></i></button>
+      </div>
+      <div class="modal-body text-center" id="modal-lavar-platos">
+        <h3>Horarios guardados</h3>
+        <img src="assets/img/exito.png" class="w-50" alt="">
+        <h3>Correctamente</h3>
+        <button
+                    class="btn bg-gradient-dark mt-3 mb-0"
+                    data-bs-dismiss="modal" aria-label="Close"
+                  >
+                    Aceptar
+                  </button>
       </div>
     </div>
   </div>

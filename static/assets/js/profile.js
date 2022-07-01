@@ -118,6 +118,48 @@
     return result;
   }
 
+  function validarHorarios(horarios){
+    var array = horarios.replace(/ /g, "");
+    array = horarios.split("-");
+    if(array.length > 1){
+      var horario1 = array[0];
+      var horario2 = array[1];
+
+      var horario1 = horario1.split(":");
+      var horario2 = horario2.split(":");
+
+      var minutos1 = parseInt(horario1[1]);
+      var horario1 = parseInt(horario1[0]);
+      var minutos2 = parseInt(horario2[1]);
+      var horario2 = parseInt(horario2[0]);
+
+      if(horario1 > horario2 || (horario1 == horario2 && minutos1 > minutos2) || (horario1 == horario2 && minutos1 == minutos2)){
+        return false;
+      }
+
+      if(array.length == 4){
+        var horario3 = array[2];
+        var horario4 = array[3];
+
+        var horario3 = horario3.split(":");
+        var horario4 = horario4.split(":");
+
+        //convert string to int
+        var minutos3 = parseInt(horario3[1]);
+        var horario3 = parseInt(horario3[0]);
+        var minutos4 = parseInt(horario4[1]);
+        var horario4 = parseInt(horario4[0]);
+
+        if(horario3 > horario4 || (horario3 == horario4 && minutos3 > minutos4) || (horario3 == horario4 && minutos3 == minutos4)){
+          return false;
+        }
+      }
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   var formHorarios = document.getElementById("form-horarios");
   formHorarios.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -128,37 +170,38 @@
     var horariosJueves = getDataHorario("jueves");
     var horariosViernes = getDataHorario("viernes");
 
-    //update in firebase
-    db.collection("Chimangos")
-      .where("nombre", "==", nombre)
-      .get()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          db.collection("Chimangos").doc(doc.id).update({
-            lunes: horariosLunes,
-            martes: horariosMartes,
-            miercoles: horariosMiercoles,
-            jueves: horariosJueves,
-            viernes: horariosViernes,
-          });
-        });
-      })
-      .then(()=>{
-        refreshDashboard();
-        alert("Horarios actualizados");
-      })
+    var modalError = new bootstrap.Modal(document.getElementById('errorModal'), {
+      keyboard: false
+    })
 
-    // db.collection("Chimangos")
-    //   .doc(nombre)
-    //   .set(horarios)
-    //   .then(() => {
-    //     alert("Horarios actualizados");
-    //   }
-    //   )
-    //   .catch((error) => {
-    //     alert("Error al actualizar horarios");
-    //   }
-    //   );
+    var modalExito = new bootstrap.Modal(document.getElementById('exitoModal'), {
+      keyboard: false
+    })
+    
+    if(validarHorarios(horariosLunes) && validarHorarios(horariosMartes) && validarHorarios(horariosMiercoles) && validarHorarios(horariosJueves) && validarHorarios(horariosViernes)){
+      db.collection("Chimangos")
+        .where("nombre", "==", nombre)
+        .get()
+        .then((snapshot) => {
+          snapshot.forEach((doc) => {
+            db.collection("Chimangos").doc(doc.id).update({
+              lunes: horariosLunes,
+              martes: horariosMartes,
+              miercoles: horariosMiercoles,
+              jueves: horariosJueves,
+              viernes: horariosViernes,
+            });
+          });
+        })
+        .then(()=>{
+          // refreshDashboard();
+          modalExito.show();
+        })
+    }else{
+      modalError.show();
+    }
+
+
   });
 
   function setHorarios(data) {
@@ -269,8 +312,6 @@
       document.getElementById("martes-desde2").value = martes[2];
       document.getElementById("martes-hasta2").value = martes[3];
     }
-
-    console.log(miercoles);
 
     if (miercoles.length == 2) {
       checkmiercoles.setAttribute("checked", "checked");
