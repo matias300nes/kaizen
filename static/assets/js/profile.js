@@ -10,6 +10,16 @@
 
   nombre = nombre.toLowerCase();
 
+  var comandos = [
+    {
+      comando: "$play ",
+      ejemplo: "$play + [link]",
+      descripcion: "Reproducir un video de YouTube",
+    },
+    { comando: "$lavarPlatos", ejemplo: "$lavarPlatos", descripcion: "Sortear quien lava los platos" },
+    { comando: "$play", ejemplo: "$play", descripcion: "Pausar o reproducir el video" },
+  ];
+
   function getChimangos() {
     return new Promise((resolve, reject) => {
       db.collection("Chimangos")
@@ -43,21 +53,46 @@
     });
   }
 
+  var btnVerComandos = document.getElementById("btnVerComandos");
+  btnVerComandos.addEventListener("click", () => {
+    setComandos();
+  }
+  );
+
+  function setComandos() {
+    var div = document.getElementById("modal-comandos");
+    div.innerHTML = "";
+    comandos.forEach((element) => {
+      var a = document.createElement("a");
+      a.className = "btn btn-link text-dark px-3 mb-0";
+      a.innerText = element.ejemplo + " - " + element.descripcion;
+      div.appendChild(a);
+      a.addEventListener("click", () => {
+        document.getElementById("ComposedMessage").value = element.comando;
+        document.getElementById("btn-close-comandos").click();
+      }
+      );
+    }
+    );
+  }
+
   getVideos().then((data) => {
     setVideos(data);
   });
 
-  function setVideos(data){
+  function setVideos(data) {
     var listaVideos = document.getElementById("lista-videos");
-    console.log(listaVideos)
+    console.log(listaVideos);
     data.forEach((element) => {
       var li = document.createElement("li");
-      li.className = "list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg";
+      li.className =
+        "list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg";
       var div = document.createElement("div");
       div.className = "d-flex align-items-center";
       var button = document.createElement("button");
-      button.className = "btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center";
-      button.setAttribute("id", "video-"+element.link);
+      button.className =
+        "btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center";
+      button.setAttribute("id", "video-" + element.link);
       var icon = document.createElement("i");
       icon.className = "fa fa-play";
       var div2 = document.createElement("div");
@@ -67,7 +102,7 @@
       h6.innerHTML = element.nombre;
       var div3 = document.createElement("div");
       div3.className = "d-flex flex-column";
-      
+
       div2.appendChild(h6);
       button.appendChild(icon);
       div3.appendChild(button);
@@ -77,7 +112,7 @@
 
       listaVideos.appendChild(li);
 
-      button = document.getElementById("video-"+element.link);
+      button = document.getElementById("video-" + element.link);
       button.addEventListener("click", () => {
         console.log(element.link);
         var campoMsg = document.getElementById("ComposedMessage");
@@ -85,11 +120,8 @@
         var btnSend = document.getElementById("btnSendMessage");
         btnSend.click();
       });
-    }
-    );
+    });
   }
-
-
 
   var dias = ["lunes", "martes", "miercoles", "jueves", "viernes"];
 
@@ -118,10 +150,10 @@
     return result;
   }
 
-  function validarHorarios(horarios){
+  function validarHorarios(horarios) {
     var array = horarios.replace(/ /g, "");
     array = horarios.split("-");
-    if(array.length > 1){
+    if (array.length > 1) {
       var horario1 = array[0];
       var horario2 = array[1];
 
@@ -133,11 +165,15 @@
       var minutos2 = parseInt(horario2[1]);
       var horario2 = parseInt(horario2[0]);
 
-      if(horario1 > horario2 || (horario1 == horario2 && minutos1 > minutos2) || (horario1 == horario2 && minutos1 == minutos2)){
+      if (
+        horario1 > horario2 ||
+        (horario1 == horario2 && minutos1 > minutos2) ||
+        (horario1 == horario2 && minutos1 == minutos2)
+      ) {
         return false;
       }
 
-      if(array.length == 4){
+      if (array.length == 4) {
         var horario3 = array[2];
         var horario4 = array[3];
 
@@ -150,12 +186,16 @@
         var minutos4 = parseInt(horario4[1]);
         var horario4 = parseInt(horario4[0]);
 
-        if(horario3 > horario4 || (horario3 == horario4 && minutos3 > minutos4) || (horario3 == horario4 && minutos3 == minutos4)){
+        if (
+          horario3 > horario4 ||
+          (horario3 == horario4 && minutos3 > minutos4) ||
+          (horario3 == horario4 && minutos3 == minutos4)
+        ) {
           return false;
         }
       }
       return true;
-    }else{
+    } else {
       return false;
     }
   }
@@ -170,15 +210,27 @@
     var horariosJueves = getDataHorario("jueves");
     var horariosViernes = getDataHorario("viernes");
 
-    var modalError = new bootstrap.Modal(document.getElementById('errorModal'), {
-      keyboard: false
-    })
+    var modalError = new bootstrap.Modal(
+      document.getElementById("errorModal"),
+      {
+        keyboard: false,
+      }
+    );
 
-    var modalExito = new bootstrap.Modal(document.getElementById('exitoModal'), {
-      keyboard: false
-    })
-    
-    if(validarHorarios(horariosLunes) && validarHorarios(horariosMartes) && validarHorarios(horariosMiercoles) && validarHorarios(horariosJueves) && validarHorarios(horariosViernes)){
+    var modalExito = new bootstrap.Modal(
+      document.getElementById("exitoModal"),
+      {
+        keyboard: false,
+      }
+    );
+
+    if (
+      validarHorarios(horariosLunes) &&
+      validarHorarios(horariosMartes) &&
+      validarHorarios(horariosMiercoles) &&
+      validarHorarios(horariosJueves) &&
+      validarHorarios(horariosViernes)
+    ) {
       db.collection("Chimangos")
         .where("nombre", "==", nombre)
         .get()
@@ -193,15 +245,13 @@
             });
           });
         })
-        .then(()=>{
+        .then(() => {
           refreshDashboard();
           modalExito.show();
-        })
-    }else{
+        });
+    } else {
       modalError.show();
     }
-
-
   });
 
   function setHorarios(data) {
