@@ -101,7 +101,7 @@ function execCommand(command, parameters) {
     case "$play":
       musicIntput = document.getElementById("video-link");
       changeButton = document.getElementById("cambiar-video");
-      playButton = document.getElementsByClassName("ytp-play-button");
+      playButton = document.getElementById("video-play");
       console.log(playButton);
       if (parameters[0]) {
         musicIntput.value = parameters[0];

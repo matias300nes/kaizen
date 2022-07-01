@@ -197,11 +197,11 @@
         clearInterval(interval);
       }
     }, 1000);
-    setTimeout(function () {
+    var interval2 = setInterval(function (){
       modalCountdown.innerHTML = "";
       modalResult.innerHTML = "";
       btnClose.click();
-      clearInterval(interval);
+      clearInterval(interval2);
     }, 10000);
   }
 
