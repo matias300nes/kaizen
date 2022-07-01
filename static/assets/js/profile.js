@@ -194,7 +194,7 @@
           });
         })
         .then(()=>{
-          // refreshDashboard();
+          refreshDashboard();
           modalExito.show();
         })
     }else{
