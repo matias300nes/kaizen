@@ -758,12 +758,12 @@
           video.src = oldLink;
         } else {
           newLink = newLink.split("v=");
+          newLink = newLink[1].split("&");
           newLink =
             "https://www.youtube.com/embed/" +
-            newLink[1] +
+            newLink[0] +
             "?controls=1&enablejsapi=1&html5=1&autoplay=1";
           video.src = newLink;
-          console.log(newLink);
           localStorage.setItem("video", newLink);
         }
         setTimeout(function () {

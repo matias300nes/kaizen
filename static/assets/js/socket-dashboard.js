@@ -107,7 +107,7 @@ function execCommand(command, parameters) {
         musicIntput.value = parameters[0];
         changeButton.click();
       } else {
-        playButton.click(); /* No funciona */
+        playButton.click();
       }
       break;
     case "$playWav":
