@@ -195,7 +195,9 @@
         }
       }
       return true;
-    } else {
+    } else if (horarios === ""){
+      return true;
+    } else{
       return false;
     }
   }
