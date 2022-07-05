@@ -14,6 +14,14 @@ function getChimangos() {
   });
 }
 
+var estados = [
+  "Disponible",
+  "En la universidad",
+  "En Árido",
+  "Home Office",
+  "Ausente",
+];
+
 getChimangos().then((data) => {
   setHorarios(data);
 });
@@ -32,7 +40,11 @@ var dayName = days[d.getDay()];
 
 function setHorarios(chimangos) {
   chimangos.forEach((element) => {
-    var horario = document.getElementById("horario-" + element.nombre);
+    var estado = element.estado;
+    estado = estados[estado];
+    var estadoText = document.getElementById("estado-" + element.nombre);
+    estadoText.innerHTML = estado;
+    var horario1 = document.getElementById("horario-" + element.nombre);
     var horario2 = document.getElementById("horario2-" + element.nombre);
     var arrayHorarios = [];
     switch (dayName) {

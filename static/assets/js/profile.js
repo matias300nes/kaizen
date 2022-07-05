@@ -10,6 +10,20 @@
 
   nombre = nombre.toLowerCase();
 
+  var modalError = new bootstrap.Modal(
+    document.getElementById("errorModal"),
+    {
+      keyboard: false,
+    }
+  );
+
+  var modalExito = new bootstrap.Modal(
+    document.getElementById("exitoModal"),
+    {
+      keyboard: false,
+    }
+  );
+
   var comandos = [
     {
       comando: "$play ",
@@ -36,6 +50,8 @@
   }
 
   getChimangos().then((data) => {
+    var estado = document.getElementById("selectEstado");
+    estado.value = data[0].estado;
     setHorarios(data[0]);
   });
 
@@ -59,6 +75,12 @@
   }
   );
 
+  var btnGuardarEstado = document.getElementById("saveEstado");
+  btnGuardarEstado.addEventListener("click", () => {
+    saveEstado();
+  }
+  );
+
   function setComandos() {
     var div = document.getElementById("modal-comandos");
     div.innerHTML = "";
@@ -75,6 +97,33 @@
     }
     );
   }
+
+  function saveEstado() {
+    var estado = document.getElementById("selectEstado");
+    var estado = estado.value;
+    db.collection("Chimangos")
+      .where("nombre", "==", nombre)
+      .get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          db.collection("Chimangos")
+            .doc(doc.id)
+            .update({
+              estado: estado,
+            }
+            );
+        }
+        );
+      }).then(() => {
+        modalExito.show();
+      }
+      ).catch((error) => {
+        modalError.show();
+      }
+      );
+  }
+  
+
 
   getVideos().then((data) => {
     setVideos(data);
@@ -212,20 +261,6 @@
     var horariosJueves = getDataHorario("jueves");
     var horariosViernes = getDataHorario("viernes");
 
-    var modalError = new bootstrap.Modal(
-      document.getElementById("errorModal"),
-      {
-        keyboard: false,
-      }
-    );
-
-    var modalExito = new bootstrap.Modal(
-      document.getElementById("exitoModal"),
-      {
-        keyboard: false,
-      }
-    );
-
     if (
       validarHorarios(horariosLunes) &&
       validarHorarios(horariosMartes) &&
@@ -257,9 +292,6 @@
   });
 
   function setHorarios(data) {
-    var estado = data.estado;
-
-    var selectEstado = document.getElementById("selectEstado");
 
     var checklunes = document.getElementById("check-horario-lunes");
     checklunes.onclick = function () {

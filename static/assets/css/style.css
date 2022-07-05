@@ -3851,6 +3851,11 @@ a {
     box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
 }	
 
+.profile-name{
+  min-width: 220px;
+  padding-right: 0px !important;
+}
+
 @keyframes hide {
     to {
         opacity: 0;
