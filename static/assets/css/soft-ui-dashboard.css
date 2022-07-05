@@ -26904,8 +26904,8 @@ pre[class*="language-"] {
 }
 
 .chat-container{
-  height: 363px;
-  max-height: 363px;
+  height: 389px;
+  max-height: 389px;
   overflow: auto;
 }
 
@@ -26945,5 +26945,9 @@ pre[class*="language-"] {
 
 .music-container::-webkit-scrollbar-track {
   border-radius: 10px;  
+}
+
+.margin-horarios{
+  margin-top: 42px;
 }
 
