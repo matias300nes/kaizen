@@ -22,7 +22,9 @@ function Send() {
 }
 
 function refreshDashboard() {
-  socket.emit("refreshDashboard");
+  setTimeout(function () {
+    socket.emit("refreshDashboard");
+  } , 2000);
 }
 
 function delayReset() {
