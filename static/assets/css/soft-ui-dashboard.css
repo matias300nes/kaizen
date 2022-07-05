@@ -26906,7 +26906,7 @@ pre[class*="language-"] {
 .chat-container{
   height: 389px;
   max-height: 389px;
-  overflow: auto;
+  overflow: overlay;
 }
 
 .music-container{
