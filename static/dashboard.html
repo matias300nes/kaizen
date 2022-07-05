@@ -764,7 +764,15 @@
         if (newLink == "") {
           var oldLink = localStorage.getItem("video");
           video.src = oldLink;
-        } else {
+        } else if(newLink.includes("list")){
+          //if the newlink var contains the word "list" save it in a var
+          var list = newLink;
+          console.log("Its a list");
+          list = list.split("list=")[1];
+          newLink = "https://www.youtube.com/embed/videoseries?list=" + list;
+          video.src = newLink;
+          localStorage.setItem("video", newLink);
+        }else {
           newLink = newLink.split("v=");
           newLink = newLink[1].split("&");
           newLink =
@@ -773,33 +781,51 @@
             "?controls=1&enablejsapi=1&html5=1&autoplay=1";
           video.src = newLink;
           localStorage.setItem("video", newLink);
+          setTimeout(function () {
+            var title = document.getElementById("video-title").value;
+            if (title !== "") {
+              var db = firebase.firestore();
+              db.collection("Videos")
+                .where("link", "==", currentLink)
+                .get()
+                .then(function (querySnapshot) {
+                  if (querySnapshot.empty) {
+                    db.collection("Videos")
+                      .add({
+                        nombre: title,
+                        link: currentLink,
+                        visitas: 0,
+                      })
+                      .then(function (docRef) {
+                        console.log("Document written with ID: ", docRef.id);
+                      })
+                      .catch(function (error) {
+                        console.error("Error adding document: ", error);
+                      });
+                  }else{
+                    var visitas = querySnapshot.docs[0].data().visitas;
+                    var visitasRes = 1;
+                    if(visitas !== "NaN" || visitas !== null){
+                      visitas = parseInt(visitas);
+                      visitasRes = visitas + 1;
+                    }
+                    console.log(visitas);
+                    db.collection("Videos")
+                      .doc(querySnapshot.docs[0].id)
+                      .update({
+                        visitas: visitasRes,
+                      })
+                      .then(function () {
+                        console.log("Document successfully updated!");
+                      })
+                      .catch(function (error) {
+                        console.error("Error updating document: ", error);
+                      });
+                  }
+                });
+            }
+          }, 3000);
         }
-        setTimeout(function () {
-          var title = document.getElementById("video-title").value;
-          if (title !== "") {
-            //save into videos collection firebase
-            var db = firebase.firestore();
-            //check if video already exists
-            db.collection("Videos")
-              .where("link", "==", currentLink)
-              .get()
-              .then(function (querySnapshot) {
-                if (querySnapshot.empty) {
-                  db.collection("Videos")
-                    .add({
-                      nombre: title,
-                      link: currentLink,
-                    })
-                    .then(function (docRef) {
-                      console.log("Document written with ID: ", docRef.id);
-                    })
-                    .catch(function (error) {
-                      console.error("Error adding document: ", error);
-                    });
-                }
-              });
-          }
-        }, 3000);
         document.getElementById("video-link").value = "";
       });
 
