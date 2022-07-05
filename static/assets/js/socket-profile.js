@@ -31,6 +31,9 @@ function delayReset() {
 
 function getChatHistory() {
     chatHistory = JSON.parse(sessionStorage.getItem("chatHistory"));
+    if (!chatHistory){
+        chatHistory = []
+    }
     chatHistory.forEach(msg => {
         showMessage(msg.time, msg.user, msg.message)
     })
@@ -61,8 +64,6 @@ function showMessage(time, username, message){
     );
     messages.appendChild(child);
     messages.scrollTop = messages.scrollHeight;
-    dingSound.currentTime = 0;
-    dingSound.play();
 }
 
 window.onload = () => {
@@ -111,6 +112,9 @@ window.onload = () => {
     sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
     
     showMessage(time, response.user.username, response.message)
+
+    dingSound.currentTime = 0;
+    dingSound.play();
   });
 
     socket.on("userWriting", (user) => {
