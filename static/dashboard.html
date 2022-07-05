@@ -769,7 +769,7 @@
           var list = newLink;
           console.log("Its a list");
           list = list.split("list=")[1];
-          newLink = "https://www.youtube.com/embed/videoseries?list=" + list;
+          newLink = "https://www.youtube.com/embed/videoseries?list=" + list + "&autoplay=1";
           video.src = newLink;
           localStorage.setItem("video", newLink);
         }else {
