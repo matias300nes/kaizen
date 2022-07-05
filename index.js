@@ -38,6 +38,10 @@ io.on('connection', function(socket) {
         socket.broadcast.emit("mouseClick", x, y);
 	})
 
+    socket.on("userWriting", (user) => {
+        socket.broadcast.emit("userWriting", user);
+    })
+
     socket.on("refreshDashboard", () => {
         io.sockets.emit("refreshDashboard");
     })
