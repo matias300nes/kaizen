@@ -151,8 +151,16 @@
             </div>
             <div class="card">
               <div class="card-header pb-0 p-3">
-                <h6>Musicota</h6>
-                  <input id="InputSearchSong" type="text">
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <h6 class="mb-0">Musicota</h6>
+                    <a>Playlist</a>
+                  </div>
+                  <div class="col input-group">
+                    <input type="text" class="form-control input-search" placeholder="Buscar música" aria-label="Buscar música" aria-describedby="button-addon2" id="InputSearchSong">
+                    <button class="btn-search" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
               </div>
               <div class="card-body p-3 music-container">
                 <ul class="list-group" id="lista-videos">

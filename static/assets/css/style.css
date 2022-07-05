@@ -3856,6 +3856,29 @@ a {
   padding-right: 0px !important;
 }
 
+.btn-search{
+  background-color: #fff !important;
+  color: #344767 !important;
+  box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+  border-radius: 50%;
+  padding: 0.5rem;
+  border: none;
+}
+
+.input-search{
+  border: none !important;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.input-search:focus{
+  outline: none !important;
+  border: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-left: 0px !important;
+}
+
 @keyframes hide {
     to {
         opacity: 0;
