@@ -69,6 +69,7 @@
     });
   }
 
+
   var btnVerComandos = document.getElementById("btnVerComandos");
   btnVerComandos.addEventListener("click", () => {
     setComandos();
@@ -173,6 +174,21 @@
       });
     });
   }
+
+
+    var inputSearchSong = document.getElementById("InputSearchSong")
+    inputSearchSong.addEventListener("input", (e) => {
+        var listaVideos = document.getElementById("lista-videos");
+        childs = listaVideos.querySelectorAll("li")
+        childs.forEach(child => {
+            name = child.querySelector("h6").innerHTML.toLowerCase()
+            if(name.includes(inputSearchSong.value.toLowerCase())){
+                child.classList.remove("hidden")
+            }else{
+                child.classList.add("hidden")
+            }
+        })
+    })
 
   var dias = ["lunes", "martes", "miercoles", "jueves", "viernes"];
 

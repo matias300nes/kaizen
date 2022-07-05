@@ -26883,7 +26883,7 @@ pre[class*="language-"] {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .hover-gradient{
