@@ -115,6 +115,8 @@
         }
         );
       }).then(() => {
+        document.getElementById("modalSaveText").innerHTML = "Estado guardado";
+        refreshDashboard();
         modalExito.show();
       }
       ).catch((error) => {
@@ -283,6 +285,7 @@
           });
         })
         .then(() => {
+          document.getElementById("modalSaveText").innerHTML = "Horarios guardados";
           refreshDashboard();
           modalExito.show();
         });
