@@ -132,6 +132,24 @@ function execCommand(command, parameters) {
     case "$lavarPlatos":
       btnLavar = document.querySelector("#sortearLavaplatos");
       btnLavar.click();
+      break;
+    case "$mute":
+      mute = document.querySelector("#video-mute");
+      mute.click();
+      break;
+    case "$setVolume":
+      volume = document.querySelector("#video-volume");
+      volume.value = parameters[0];
+      volume.click();
+      break;
+    case "$next":
+      next = document.querySelector("#video-next");
+      next.click();
+      break;
+    case "$prev":
+      prev = document.querySelector("#video-prev");
+      prev.click();
+      break;
   }
 }
 
