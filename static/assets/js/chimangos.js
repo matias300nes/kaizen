@@ -20,6 +20,7 @@ var estados = [
   "En Árido",
   "Home Office",
   "Ausente",
+  "Estrolado",
 ];
 
 getChimangos().then((data) => {
