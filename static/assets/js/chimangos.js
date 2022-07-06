@@ -39,6 +39,10 @@ var d = new Date();
 var dayName = days[d.getDay()];
 
 function setHorarios(chimangos) {
+  chimangos = chimangos.filter((chimango) => {
+    return chimango.nombre != "moni";
+  }
+  );
   chimangos.forEach((element) => {
     var estado = element.estado;
     estado = estados[estado];
