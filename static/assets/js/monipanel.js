@@ -10,19 +10,13 @@
 
   nombre = nombre.toLowerCase();
 
-  var modalError = new bootstrap.Modal(
-    document.getElementById("errorModal"),
-    {
-      keyboard: false,
-    }
-  );
+  var modalError = new bootstrap.Modal(document.getElementById("errorModal"), {
+    keyboard: false,
+  });
 
-  var modalExito = new bootstrap.Modal(
-    document.getElementById("exitoModal"),
-    {
-      keyboard: false,
-    }
-  );
+  var modalExito = new bootstrap.Modal(document.getElementById("exitoModal"), {
+    keyboard: false,
+  });
 
   var comandos = [
     {
@@ -30,8 +24,16 @@
       ejemplo: "$play + [link]",
       descripcion: "Reproducir un video de YouTube",
     },
-    { comando: "$lavarPlatos", ejemplo: "$lavarPlatos", descripcion: "Sortear quien lava los platos" },
-    { comando: "$play", ejemplo: "$play", descripcion: "Pausar o reproducir el video" },
+    {
+      comando: "$lavarPlatos",
+      ejemplo: "$lavarPlatos",
+      descripcion: "Sortear quien lava los platos",
+    },
+    {
+      comando: "$play",
+      ejemplo: "$play",
+      descripcion: "Pausar o reproducir el video",
+    },
   ];
 
   function getChimangos() {
@@ -50,10 +52,9 @@
   }
 
   getChimangos().then((data) => {
-    var estado = document.getElementById("selectEstado");
-    estado.value = data[0].estado;
     var rangoText = document.getElementById("rango");
-    rangoText.innerText = data[0].rango.charAt(0).toUpperCase() + data[0].rango.slice(1);
+    rangoText.innerText =
+      data[0].rango.charAt(0).toUpperCase() + data[0].rango.slice(1);
     setHorarios(data[0]);
   });
 
@@ -71,18 +72,10 @@
     });
   }
 
-
   var btnVerComandos = document.getElementById("btnVerComandos");
   btnVerComandos.addEventListener("click", () => {
     setComandos();
-  }
-  );
-
-  var btnGuardarEstado = document.getElementById("saveEstado");
-  btnGuardarEstado.addEventListener("click", () => {
-    saveEstado();
-  }
-  );
+  });
 
   function setComandos() {
     var div = document.getElementById("modal-comandos");
@@ -95,40 +88,9 @@
       a.addEventListener("click", () => {
         document.getElementById("ComposedMessage").value = element.comando;
         document.getElementById("btn-close-comandos").click();
-      }
-      );
-    }
-    );
+      });
+    });
   }
-
-  function saveEstado() {
-    var estado = document.getElementById("selectEstado");
-    var estado = estado.value;
-    db.collection("Chimangos")
-      .where("nombre", "==", nombre)
-      .get()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          db.collection("Chimangos")
-            .doc(doc.id)
-            .update({
-              estado: estado,
-            }
-            );
-        }
-        );
-      }).then(() => {
-        document.getElementById("modalSaveText").innerHTML = "Estado guardado";
-        refreshDashboard();
-        modalExito.show();
-      }
-      ).catch((error) => {
-        modalError.show();
-      }
-      );
-  }
-  
-
 
   getVideos().then((data) => {
     setVideos(data);
@@ -177,20 +139,19 @@
     });
   }
 
-
-    var inputSearchSong = document.getElementById("InputSearchSong")
-    inputSearchSong.addEventListener("input", (e) => {
-        var listaVideos = document.getElementById("lista-videos");
-        childs = listaVideos.querySelectorAll("li")
-        childs.forEach(child => {
-            name = child.querySelector("h6").innerHTML.toLowerCase()
-            if(name.includes(inputSearchSong.value.toLowerCase())){
-                child.classList.remove("hidden")
-            }else{
-                child.classList.add("hidden")
-            }
-        })
-    })
+  var inputSearchSong = document.getElementById("InputSearchSong");
+  inputSearchSong.addEventListener("input", (e) => {
+    var listaVideos = document.getElementById("lista-videos");
+    childs = listaVideos.querySelectorAll("li");
+    childs.forEach((child) => {
+      name = child.querySelector("h6").innerHTML.toLowerCase();
+      if (name.includes(inputSearchSong.value.toLowerCase())) {
+        child.classList.remove("hidden");
+      } else {
+        child.classList.add("hidden");
+      }
+    });
+  });
 
   var dias = ["lunes", "martes", "miercoles", "jueves", "viernes"];
 
@@ -264,9 +225,9 @@
         }
       }
       return true;
-    } else if (horarios === ""){
+    } else if (horarios === "") {
       return true;
-    } else{
+    } else {
       return false;
     }
   }
@@ -303,7 +264,8 @@
           });
         })
         .then(() => {
-          document.getElementById("modalSaveText").innerHTML = "Horarios guardados";
+          document.getElementById("modalSaveText").innerHTML =
+            "Horarios guardados";
           refreshDashboard();
           modalExito.show();
         });
@@ -313,7 +275,6 @@
   });
 
   function setHorarios(data) {
-
     var checklunes = document.getElementById("check-horario-lunes");
     checklunes.onclick = function () {
       checklunes.toggleAttribute("checked");
@@ -368,8 +329,6 @@
     toggleViernes.onclick = function () {
       toggle2nd("viernes");
     };
-
-    if(data.nombre != "moni"){
 
     var lunes = data.lunes.replace(/ /g, "");
     var martes = data.martes.replace(/ /g, "");
@@ -459,5 +418,4 @@
       document.getElementById("viernes-hasta2").value = viernes[3];
     }
   }
-}
 })();

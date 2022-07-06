@@ -12,7 +12,7 @@
       href="assets/img/apple-icon.png"
     />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-    <title>Perfil - Kaizen</title>
+    <title>Monipanel - Kaizen</title>
     <!--     Fonts and icons     -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
@@ -84,8 +84,8 @@
                       role="tab"
                       aria-selected="true"
                     >
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                      <span class="ms-1">Perfil</span>
+                      <i class="fa fa-address-book" aria-hidden="true"></i>
+                      <span class="ms-1">Panel</span>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -119,36 +119,6 @@
       <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12 col-xl-3">
-            <div class="card mb-3">
-              <div class="card-header pb-0 p-3">
-                <h6 class="mb-0">Estado</h6>
-              </div>
-              <div class="card-body p-3">
-                <ul class="list-group">
-                  <h6
-                    class="text-uppercase text-body text-xs font-weight-bolder"
-                  >
-                    Ausencia
-                  </h6>
-                  <select name="" id="selectEstado" class="form-control">
-                    <option value="0">Disponible</option>
-                    <option value="1">En la universidad</option>
-                    <option value="2">En Árido</option>
-                    <option value="3">Home Office</option>
-                    <option value="4">Ausente</option>
-                  </select>
-                </ul>
-                <div class="text-center">
-                  <button
-                    class="btn bg-gradient-dark mt-3 mb-0"
-                    type="button"
-                    id="saveEstado"
-                  >
-                    Guardar
-                  </button>
-                </div>
-              </div>
-            </div>
             <div class="card">
               <div class="card-header pb-0 p-3">
                 <div class="row mb-3">
@@ -1148,8 +1118,8 @@
     <script src="assets/js/core/bootstrap.min.js"></script>
     <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="assets/js/socket-profile.js"></script>
-      <script src="assets/js/profile.js"></script>
+    <script src="assets/js/socket-monipanel.js"></script>
+    <script src="assets/js/monipanel.js"></script>
     <script>
       var win = navigator.platform.indexOf("Win") > -1;
       if (win && document.querySelector("#sidenav-scrollbar")) {
