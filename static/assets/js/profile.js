@@ -30,14 +30,8 @@
       ejemplo: "$play + [link]",
       descripcion: "Reproducir un video de YouTube",
     },
-    { comando: "$lavarPlatos", ejemplo: "$lavarPlatos", descripcion: "Sortear quien lava los platos", },
+    { comando: "$lavarPlatos", ejemplo: "$lavarPlatos", descripcion: "Sortear quien lava los platos" },
     { comando: "$play", ejemplo: "$play", descripcion: "Pausar o reproducir el video" },
-    { comando: "$prev", ejemplo: "$prev", descripcion: "Video anterior" },
-    { comando: "$next", ejemplo: "$next", descripcion: "Video siguiente" },
-    { comando: "$setVolume", ejemplo: "$setVolume + [0 - 100]", descripcion: "Setea el volumen" },
-    { comando: "$mute", ejemplo: "$mute", descripcion: "Mute/Unmute" },
-    { comando: "$say", ejemplo: "$say + [frase]", descripcion: "Leer en voz alta una frase" },
-    { comando: "$playWav", ejemplo: "$playWav + [Nombre]", descripcion: "Se la come" },
   ];
 
   function getChimangos() {

@@ -417,9 +417,6 @@
                 <input type="hidden" id="video-title" value="" />
                 <input type="hidden" id="video-author" value="" />
                 <input type="button" id="video-play" value="" class="hidden" />
-                <input type="button" id="video-next" value="" class="hidden" />
-                <input type="button" id="video-prev" value="" class="hidden" />
-                <input type="button" id="video-mute" value="" class="hidden" />
               </div>
               <div class="input-group mt-3">
                 <span class="input-group-text text-body"
@@ -743,9 +740,6 @@
           player.getVideoData().author;
 
           var playbtn = document.getElementById("video-play");
-          var nextbtn = document.getElementById("video-next");
-          var prevbtn = document.getElementById("video-prev");
-          var mutebtn = document.getElementById("video-mute");
           //bind onclick event to the play button
           playbtn.addEventListener("click", function() {
             //check if the player is already playing
@@ -757,24 +751,6 @@
               //if it's paused, play it
               player.playVideo();
               playbtn.innerHTML = "Pause";
-            }
-          });
-
-          nextbtn.addEventListener("click", function() {
-            player.nextVideo();
-          });
-
-          prevbtn.addEventListener("click", function() {
-            player.previousVideo();
-          });
-
-          mutebtn.addEventListener("click", function() {
-            if (player.isMuted()) {
-              player.unMute();
-              mutebtn.innerHTML = "Mute";
-            } else {
-              player.mute();
-              mutebtn.innerHTML = "Unmute";
             }
           });
         
