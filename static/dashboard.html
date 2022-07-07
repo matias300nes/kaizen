@@ -723,15 +723,11 @@
           (memeImgSRC = data.data), memes;
         });
 
-      // global variable for the player
       var player;
 
-      // this function gets called when API is ready to use
       function onYouTubePlayerAPIReady() {
-        // create the global player from the specific iframe (#video)
         player = new YT.Player("video", {
           events: {
-            // call this function when player is ready to use
             onReady: onPlayerReady,
           },
         });
@@ -747,10 +743,8 @@
           playbtn.addEventListener("click", function() {
             if (player.getPlayerState() == 1) {
               player.pauseVideo();
-              playbtn.innerHTML = "Play";
             } else {
               player.playVideo();
-              playbtn.innerHTML = "Pause";
             }
           });
 
@@ -758,10 +752,8 @@
           mutebtn.addEventListener("click", function() {
             if (player.isMuted()) {
               player.unMute();
-              mutebtn.innerHTML = "Mute";
             } else {
               player.mute();
-              mutebtn.innerHTML = "Unmute";
             }
           });
 
@@ -792,11 +784,10 @@
           var oldLink = localStorage.getItem("video");
           video.src = oldLink;
         } else if(newLink.includes("list")){
-          //if the newlink var contains the word "list" save it in a var
           var list = newLink;
-          console.log("Its a list");
           list = list.split("list=")[1];
-          newLink = "https://www.youtube.com/embed/videoseries?list=" + list + "&autoplay=1";
+          list = list.split("&")[0];
+          newLink = "https://www.youtube.com/embed/videoseries?list=" + list + "&autoplay=1&controls=1&enablejsapi=1&html5=1&autoplay=1";
           video.src = newLink;
           localStorage.setItem("video", newLink);
         }else {
