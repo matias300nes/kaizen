@@ -3,8 +3,8 @@
     "static/assets/css/style.css": [
       {
         "id": "166aea68-d93f-4c76-b8dc-4dbed899f060",
-        "line": 3855,
-        "version": 938,
+        "line": 3850,
+        "version": 952,
         "index": 100278
       }
     ],
@@ -12,7 +12,7 @@
       {
         "id": "d63fc736-93ed-47d3-8a94-2970c846c075",
         "line": 3,
-        "version": 574,
+        "version": 715,
         "index": 33
       }
     ]
