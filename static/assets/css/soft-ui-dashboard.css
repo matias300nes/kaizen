@@ -10449,6 +10449,11 @@ fieldset:disabled .btn {
   border-radius: 0.75rem !important;
 }
 
+.rounded-circle {
+  height: 3rem;
+  width: 3rem;
+}
+
 .rounded-circle,
 .avatar.rounded-circle img {
   border-radius: 50% !important;
@@ -26904,8 +26909,8 @@ pre[class*="language-"] {
 }
 
 .chat-container{
-  height: 389px;
-  max-height: 389px;
+  height: 543px;
+  max-height: 543px;
   overflow: overlay;
 }
 
@@ -26942,8 +26947,8 @@ pre[class*="language-"] {
 }
 
 .music-container{
-  height: 302px;
-  max-height: 302px;
+  height: 416px;
+  max-height: 416px;
   overflow: auto;
 }	
 
