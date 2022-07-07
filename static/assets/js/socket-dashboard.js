@@ -110,6 +110,22 @@ function execCommand(command, parameters) {
         playButton.click();
       }
       break;
+    case "$next":
+      document.getElementById("video-next").click();
+      break;
+    case "$prev":
+      document.getElementById("video-prev").click();
+      break;
+    case "$mute":
+      document.getElementById("video-mute").click();
+      break;
+    case "$vol":
+      if (parameters[0]) {
+        var newVol = parseInt(parameters[0]);
+        document.getElementById("video-volume").value = newVol;
+        document.getElementById("video-volume").click();
+      }
+      break;
     case "$playWav":
       audioPlayer = document.getElementById("AudioPlayer");
       audioPlayer.src = `assets/audio/${parameters[0]}.wav`;
