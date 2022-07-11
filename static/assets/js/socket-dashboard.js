@@ -73,6 +73,27 @@ window.onload = () => {
     console.log("pong");
   });
 
+  socket.on("playVideo" , function(){
+    document.getElementById("video-play").click();
+  });
+
+  socket.on("muteVideo" , function(){
+    document.getElementById("video-mute").click();
+  });
+
+  socket.on("nextVideo" , function(){
+    document.getElementById("video-next").click();
+  });
+
+  socket.on("prevVideo" , function(){
+    document.getElementById("video-prev").click();
+  });
+
+  socket.on("changeVolume" , function(volume){
+    document.getElementById("video-volume").value = volume;
+    document.getElementById("video-volume").click();
+  });
+
   socket.on("refreshDashboard", () => {
     clearHorarios();
     getChimangos().then((data) => {

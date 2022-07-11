@@ -81,6 +81,30 @@ window.onload = () => {
     event.preventDefault();
   }
 
+  var btnPlay = document.getElementById("btn-play");
+  btnPlay.addEventListener("click", () => {
+    socket.emit("playVideo");
+  }
+  );
+
+  var btnNext = document.getElementById("btn-next");
+  btnNext.addEventListener("click", () => {
+    socket.emit("nextVideo");
+  }
+  );
+
+  var btnPrev = document.getElementById("btn-prev");
+  btnPrev.addEventListener("click", () => {
+    socket.emit("prevVideo");
+  }
+  );
+
+  var barVolume = document.getElementById("bar-volume");
+  barVolume.addEventListener("change", () => {
+    socket.emit("changeVolume", barVolume.value);
+  }
+  );
+
   document.getElementById("form-msg").addEventListener("submit", sendForm);
 
   document.getElementById("btnSendMessage").addEventListener("click", Send);

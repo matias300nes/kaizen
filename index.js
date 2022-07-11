@@ -46,6 +46,26 @@ io.on('connection', function(socket) {
         io.sockets.emit("refreshDashboard");
     })
 
+	socket.on("playVideo", () => {
+		socket.broadcast.emit("playVideo");
+	})
+
+	socket.on("prevVideo", () => {
+		socket.broadcast.emit("prevVideo");
+	})
+
+	socket.on("nextVideo", () => {
+		socket.broadcast.emit("nextVideo");
+	})
+
+	socket.on("muteVideo", () => {
+		socket.broadcast.emit("muteVideo");
+	})
+
+	socket.on("changeVolume", (vol) => {
+		socket.broadcast.emit("changeVolume", vol);
+	})
+
 	socket.on("send", function(message) {
 		response = {
 			user: users[socket.id],
