@@ -79,7 +79,9 @@
             class="col-4 text-end mx-auto mt-3"
           >
             <div class="nav-wrapper position-relative end-0">
-              <img src="/assets/img/logo.png" class="logo" />
+              <div class="h-100">
+                <img src="/assets/img/logo.png" class="logo" />
+              </div>
             </div>
           </div>
         </div>
@@ -87,7 +89,7 @@
     </div>
 
       <div class="container-fluid py-4">
-        <div class="row mt-4">
+        <div class="row">
           <div class="col-lg-9 mb-lg-0 mb-4">
             <div class="card h-100 mb-4">
               <div class="card-header pb-0">
@@ -108,7 +110,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card-body ps-0 pt-0 pb-2">
+              <div class="card-body ps-0 pt-0 pb-0">
                 <div class="p-0">
                   <table class="table align-items-center table-borderless mb-0">
                     <thead>
@@ -433,7 +435,7 @@
                 <input type="button" id="video-mute" value="" class="hidden" />
                 <input type="button" id="video-volume" value="" class="hidden" />
               </div>
-              <div class="input-group mt-3">
+              <!-- <div class="input-group mt-3">
                 <span class="input-group-text text-body"
                   ><i class="fas fa-link" aria-hidden="true"></i
                 ></span>
@@ -450,7 +452,7 @@
                 >
                   Cambiar
                 </button>
-              </div>
+              </div> -->
             </div>
             <div class="card h-50 p-3">
               <div
@@ -479,6 +481,12 @@
                 </div>
               </div>
             </div>
+            <div class="sela-come mt-3">
+              <div
+                  class="text-center text-md text-muted"
+                  id="seLaCome"
+                ></div>
+            </div>
           </div>
         </div>
 
@@ -499,19 +507,6 @@
 
         <!-- render toasts -->
         <div id="toastContainer"></div>
-
-        <footer class="footer pt-3">
-          <div class="container-fluid">
-            <div class="row align-items-center justify-content-lg-between">
-              <div class="col-lg-6 mb-lg-0 mb-4">
-                <div
-                  class="copyright text-center text-md text-muted text-lg-start"
-                  id="seLaCome"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </main>
     <!--   Core JS Files   -->
