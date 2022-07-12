@@ -10,19 +10,25 @@
 
   nombre = nombre.toLowerCase();
 
-  var modalError = new bootstrap.Modal(
-    document.getElementById("errorModal"),
-    {
-      keyboard: false,
-    }
-  );
+  var fondoReproductor = document.getElementById("fondo-reproductor");
+  var fondoPerfil = document.getElementById("fondo-perfil");
+  var random = Math.floor(Math.random() * 10);
+  fondoReproductor.style =
+    "background-image: url('../assets/img/curved-images/curved" +
+    random +
+    ".jpg')";
+  fondoPerfil.style =
+    "background-image: url('assets/img/curved-images/curved" +
+    random +
+    ".jpg'); background-position-y: 50%;";
 
-  var modalExito = new bootstrap.Modal(
-    document.getElementById("exitoModal"),
-    {
-      keyboard: false,
-    }
-  );
+  var modalError = new bootstrap.Modal(document.getElementById("errorModal"), {
+    keyboard: false,
+  });
+
+  var modalExito = new bootstrap.Modal(document.getElementById("exitoModal"), {
+    keyboard: false,
+  });
 
   var comandos = [
     {
@@ -30,8 +36,16 @@
       ejemplo: "$play + [link]",
       descripcion: "Reproducir un video de YouTube",
     },
-    { comando: "$lavarPlatos", ejemplo: "$lavarPlatos", descripcion: "Sortear quien lava los platos" },
-    { comando: "$play", ejemplo: "$play", descripcion: "Pausar o reproducir el video" },
+    {
+      comando: "$lavarPlatos",
+      ejemplo: "$lavarPlatos",
+      descripcion: "Sortear quien lava los platos",
+    },
+    {
+      comando: "$play",
+      ejemplo: "$play",
+      descripcion: "Pausar o reproducir el video",
+    },
   ];
 
   function getChimangos() {
@@ -53,7 +67,8 @@
     var estado = document.getElementById("selectEstado");
     estado.value = data[0].estado;
     var rangoText = document.getElementById("rango");
-    rangoText.innerText = data[0].rango.charAt(0).toUpperCase() + data[0].rango.slice(1);
+    rangoText.innerText =
+      data[0].rango.charAt(0).toUpperCase() + data[0].rango.slice(1);
     setHorarios(data[0]);
   });
 
@@ -71,18 +86,15 @@
     });
   }
 
-
   var btnVerComandos = document.getElementById("btnVerComandos");
   btnVerComandos.addEventListener("click", () => {
     setComandos();
-  }
-  );
+  });
 
   var btnGuardarEstado = document.getElementById("saveEstado");
   btnGuardarEstado.addEventListener("click", () => {
     saveEstado();
-  }
-  );
+  });
 
   function setComandos() {
     var div = document.getElementById("modal-comandos");
@@ -95,10 +107,8 @@
       a.addEventListener("click", () => {
         document.getElementById("ComposedMessage").value = element.comando;
         document.getElementById("btn-close-comandos").click();
-      }
-      );
-    }
-    );
+      });
+    });
   }
 
   function saveEstado() {
@@ -109,26 +119,20 @@
       .get()
       .then((snapshot) => {
         snapshot.forEach((doc) => {
-          db.collection("Chimangos")
-            .doc(doc.id)
-            .update({
-              estado: estado,
-            }
-            );
-        }
-        );
-      }).then(() => {
+          db.collection("Chimangos").doc(doc.id).update({
+            estado: estado,
+          });
+        });
+      })
+      .then(() => {
         document.getElementById("modalSaveText").innerHTML = "Estado guardado";
         refreshDashboard();
         modalExito.show();
-      }
-      ).catch((error) => {
+      })
+      .catch((error) => {
         modalError.show();
-      }
-      );
+      });
   }
-  
-
 
   getVideos().then((data) => {
     setVideos(data);
@@ -177,20 +181,19 @@
     });
   }
 
-
-    var inputSearchSong = document.getElementById("InputSearchSong")
-    inputSearchSong.addEventListener("input", (e) => {
-        var listaVideos = document.getElementById("lista-videos");
-        childs = listaVideos.querySelectorAll("li")
-        childs.forEach(child => {
-            name = child.querySelector("h6").innerHTML.toLowerCase()
-            if(name.includes(inputSearchSong.value.toLowerCase())){
-                child.classList.remove("hidden")
-            }else{
-                child.classList.add("hidden")
-            }
-        })
-    })
+  var inputSearchSong = document.getElementById("InputSearchSong");
+  inputSearchSong.addEventListener("input", (e) => {
+    var listaVideos = document.getElementById("lista-videos");
+    childs = listaVideos.querySelectorAll("li");
+    childs.forEach((child) => {
+      name = child.querySelector("h6").innerHTML.toLowerCase();
+      if (name.includes(inputSearchSong.value.toLowerCase())) {
+        child.classList.remove("hidden");
+      } else {
+        child.classList.add("hidden");
+      }
+    });
+  });
 
   var dias = ["lunes", "martes", "miercoles", "jueves", "viernes"];
 
@@ -264,9 +267,9 @@
         }
       }
       return true;
-    } else if (horarios === ""){
+    } else if (horarios === "") {
       return true;
-    } else{
+    } else {
       return false;
     }
   }
@@ -303,7 +306,8 @@
           });
         })
         .then(() => {
-          document.getElementById("modalSaveText").innerHTML = "Horarios guardados";
+          document.getElementById("modalSaveText").innerHTML =
+            "Horarios guardados";
           refreshDashboard();
           modalExito.show();
         });
@@ -313,7 +317,6 @@
   });
 
   function setHorarios(data) {
-
     var checklunes = document.getElementById("check-horario-lunes");
     checklunes.onclick = function () {
       checklunes.toggleAttribute("checked");
@@ -369,95 +372,94 @@
       toggle2nd("viernes");
     };
 
-    if(data.nombre != "moni"){
+    if (data.nombre != "moni") {
+      var lunes = data.lunes.replace(/ /g, "");
+      var martes = data.martes.replace(/ /g, "");
+      var miercoles = data.miercoles.replace(/ /g, "");
+      var jueves = data.jueves.replace(/ /g, "");
+      var viernes = data.viernes.replace(/ /g, "");
 
-    var lunes = data.lunes.replace(/ /g, "");
-    var martes = data.martes.replace(/ /g, "");
-    var miercoles = data.miercoles.replace(/ /g, "");
-    var jueves = data.jueves.replace(/ /g, "");
-    var viernes = data.viernes.replace(/ /g, "");
+      lunes = lunes.split("-");
+      martes = martes.split("-");
+      miercoles = miercoles.split("-");
+      jueves = jueves.split("-");
+      viernes = viernes.split("-");
 
-    lunes = lunes.split("-");
-    martes = martes.split("-");
-    miercoles = miercoles.split("-");
-    jueves = jueves.split("-");
-    viernes = viernes.split("-");
+      function toggle2nd(param) {
+        document
+          .getElementById("agregar-horario-" + param)
+          .classList.toggle("fa-plus");
+        document
+          .getElementById("agregar-horario-" + param)
+          .classList.toggle("fa-minus");
+        document.getElementById(param + "-desde2").classList.toggle("hidden");
+        document.getElementById(param + "-hasta2").classList.toggle("hidden");
+      }
 
-    function toggle2nd(param) {
-      document
-        .getElementById("agregar-horario-" + param)
-        .classList.toggle("fa-plus");
-      document
-        .getElementById("agregar-horario-" + param)
-        .classList.toggle("fa-minus");
-      document.getElementById(param + "-desde2").classList.toggle("hidden");
-      document.getElementById(param + "-hasta2").classList.toggle("hidden");
-    }
+      if (lunes.length == 2) {
+        checklunes.setAttribute("checked", "checked");
+        document.getElementById("lunes-desde1").value = lunes[0];
+        document.getElementById("lunes-hasta1").value = lunes[1];
+      } else if (lunes.length == 4) {
+        checklunes.setAttribute("checked", "checked");
+        toggle2nd("lunes");
+        document.getElementById("lunes-desde1").value = lunes[0];
+        document.getElementById("lunes-hasta1").value = lunes[1];
+        document.getElementById("lunes-desde2").value = lunes[2];
+        document.getElementById("lunes-hasta2").value = lunes[3];
+      }
 
-    if (lunes.length == 2) {
-      checklunes.setAttribute("checked", "checked");
-      document.getElementById("lunes-desde1").value = lunes[0];
-      document.getElementById("lunes-hasta1").value = lunes[1];
-    } else if (lunes.length == 4) {
-      checklunes.setAttribute("checked", "checked");
-      toggle2nd("lunes");
-      document.getElementById("lunes-desde1").value = lunes[0];
-      document.getElementById("lunes-hasta1").value = lunes[1];
-      document.getElementById("lunes-desde2").value = lunes[2];
-      document.getElementById("lunes-hasta2").value = lunes[3];
-    }
+      if (martes.length == 2) {
+        checkmartes.setAttribute("checked", "checked");
+        document.getElementById("martes-desde1").value = martes[0];
+        document.getElementById("martes-hasta1").value = martes[1];
+      } else if (martes.length == 4) {
+        checkmartes.setAttribute("checked", "checked");
+        toggle2nd("martes");
+        document.getElementById("martes-desde1").value = martes[0];
+        document.getElementById("martes-hasta1").value = martes[1];
+        document.getElementById("martes-desde2").value = martes[2];
+        document.getElementById("martes-hasta2").value = martes[3];
+      }
 
-    if (martes.length == 2) {
-      checkmartes.setAttribute("checked", "checked");
-      document.getElementById("martes-desde1").value = martes[0];
-      document.getElementById("martes-hasta1").value = martes[1];
-    } else if (martes.length == 4) {
-      checkmartes.setAttribute("checked", "checked");
-      toggle2nd("martes");
-      document.getElementById("martes-desde1").value = martes[0];
-      document.getElementById("martes-hasta1").value = martes[1];
-      document.getElementById("martes-desde2").value = martes[2];
-      document.getElementById("martes-hasta2").value = martes[3];
-    }
+      if (miercoles.length == 2) {
+        checkmiercoles.setAttribute("checked", "checked");
+        document.getElementById("miercoles-desde1").value = miercoles[0];
+        document.getElementById("miercoles-hasta1").value = miercoles[1];
+      } else {
+        checkmiercoles.setAttribute("checked", "checked");
+        toggle2nd("miercoles");
+        document.getElementById("miercoles-desde1").value = miercoles[0];
+        document.getElementById("miercoles-hasta1").value = miercoles[1];
+        document.getElementById("miercoles-desde2").value = miercoles[2];
+        document.getElementById("miercoles-hasta2").value = miercoles[3];
+      }
+      2;
+      if (jueves.length == 2) {
+        checkjueves.setAttribute("checked", "checked");
+        document.getElementById("jueves-desde1").value = jueves[0];
+        document.getElementById("jueves-hasta1").value = jueves[1];
+      } else if (jueves.length == 4) {
+        checkjueves.setAttribute("checked", "checked");
+        toggle2nd("jueves");
+        document.getElementById("jueves-desde1").value = jueves[0];
+        document.getElementById("jueves-hasta1").value = jueves[1];
+        document.getElementById("jueves-desde2").value = jueves[2];
+        document.getElementById("jueves-hasta2").value = jueves[3];
+      }
 
-    if (miercoles.length == 2) {
-      checkmiercoles.setAttribute("checked", "checked");
-      document.getElementById("miercoles-desde1").value = miercoles[0];
-      document.getElementById("miercoles-hasta1").value = miercoles[1];
-    } else {
-      checkmiercoles.setAttribute("checked", "checked");
-      toggle2nd("miercoles");
-      document.getElementById("miercoles-desde1").value = miercoles[0];
-      document.getElementById("miercoles-hasta1").value = miercoles[1];
-      document.getElementById("miercoles-desde2").value = miercoles[2];
-      document.getElementById("miercoles-hasta2").value = miercoles[3];
-    }
-    2;
-    if (jueves.length == 2) {
-      checkjueves.setAttribute("checked", "checked");
-      document.getElementById("jueves-desde1").value = jueves[0];
-      document.getElementById("jueves-hasta1").value = jueves[1];
-    } else if (jueves.length == 4) {
-      checkjueves.setAttribute("checked", "checked");
-      toggle2nd("jueves");
-      document.getElementById("jueves-desde1").value = jueves[0];
-      document.getElementById("jueves-hasta1").value = jueves[1];
-      document.getElementById("jueves-desde2").value = jueves[2];
-      document.getElementById("jueves-hasta2").value = jueves[3];
-    }
-
-    if (viernes.length == 2) {
-      checkviernes.setAttribute("checked", "checked");
-      document.getElementById("viernes-desde1").value = viernes[0];
-      document.getElementById("viernes-hasta1").value = viernes[1];
-    } else if (viernes.length == 4) {
-      checkviernes.setAttribute("checked", "checked");
-      toggle2nd("viernes");
-      document.getElementById("viernes-desde1").value = viernes[0];
-      document.getElementById("viernes-hasta1").value = viernes[1];
-      document.getElementById("viernes-desde2").value = viernes[2];
-      document.getElementById("viernes-hasta2").value = viernes[3];
+      if (viernes.length == 2) {
+        checkviernes.setAttribute("checked", "checked");
+        document.getElementById("viernes-desde1").value = viernes[0];
+        document.getElementById("viernes-hasta1").value = viernes[1];
+      } else if (viernes.length == 4) {
+        checkviernes.setAttribute("checked", "checked");
+        toggle2nd("viernes");
+        document.getElementById("viernes-desde1").value = viernes[0];
+        document.getElementById("viernes-hasta1").value = viernes[1];
+        document.getElementById("viernes-desde2").value = viernes[2];
+        document.getElementById("viernes-hasta2").value = viernes[3];
+      }
     }
   }
-}
 })();

@@ -14,6 +14,13 @@ function getChimangos() {
   });
 }
 
+var fondoHeader = document.getElementById("fondo-header");
+var random = Math.floor(Math.random() * 10);
+fondoHeader.style =
+  "background-image: url('assets/img/curved-images/curved" +
+  random +
+  ".jpg'); background-position-y: 50%;";
+
 var estados = [
   "Disponible",
   "En la universidad",
@@ -42,8 +49,7 @@ var dayName = days[d.getDay()];
 function setHorarios(chimangos) {
   chimangos = chimangos.filter((chimango) => {
     return chimango.nombre != "moni";
-  }
-  );
+  });
   chimangos.forEach((element) => {
     var estado = element.estado;
     estado = estados[estado];
