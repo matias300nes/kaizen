@@ -204,8 +204,6 @@
       clearInterval(interval2);
     }, 10000);
   }
-
-  document.getElementById("nombreDia").innerHTML = dayName;
   
   // Schedule Template - by CodyHouse.co
   function ScheduleTemplate(element) {
