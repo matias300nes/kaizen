@@ -74,7 +74,7 @@
                         id="MyClockDisplay"
                       ></h3>
             </div>
-          </div>
+					</div>
           <div
             class="col-4 text-end mx-auto"
           >
@@ -793,7 +793,10 @@
           var list = newLink;
           list = list.split("list=")[1];
           list = list.split("&")[0];
-          newLink = "https://www.youtube.com/embed/videoseries?list=" + list + "&autoplay=1&controls=1&enablejsapi=1&html5=1&autoplay=1";
+          var random = Math.floor(Math.random() * (100 - 0)) + 0;
+					console.log(random);
+          var newLink = "https://www.youtube.com/embed/videoseries?list=" + list + "&index=" + random + "&autoplay=1&controls=1&enablejsapi=1&html5=1";
+					console.log(newLink);
           video.src = newLink;
           localStorage.setItem("video", newLink);
         }else {

@@ -142,7 +142,7 @@
       var dia = todaySeLaCome.split(",")[1];
       if (dia === dayName) {
         document.getElementById("seLaCome").innerHTML =
-          "<i class='fa fa-heart'></i> " + nombreMay + " se la come";
+          "<i class='fa fa-heart'></i> Empleado del mes:" + nombreMay;
       } else {
         sortSeLaCome();
       }
