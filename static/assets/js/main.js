@@ -52,16 +52,6 @@
       ],
     },
     {
-      nombre: "angie",
-      horarios: [
-        { dia: "lunes", horario: [{ entrada: "8:30", salida: "15:30" }] },
-        { dia: "martes", horario: [{ entrada: "10:30", salida: "16:30" }] },
-        { dia: "miercoles", horario: [{ entrada: "8:30", salida: "13:00" }] },
-        { dia: "jueves", horario: [{ entrada: "8:30", salida: "13:00" }] },
-        { dia: "viernes", horario: [{ entrada: "8:30", salida: "13:00" }] },
-      ],
-    },
-    {
       nombre: "diego",
       horarios: [
         { dia: "lunes", horario: [{ entrada: "8:30", salida: "16:00" }] },
@@ -130,6 +120,8 @@
       if (dia === dayName) {
         document.getElementById("nombre-" + nombre).innerHTML +=
           " <i class='fa-solid fa-sink ms-2' id='icono-bacha'></i>";
+      } else{
+        localStorage.removeItem("lavaplatos");
       }
     }
   }
