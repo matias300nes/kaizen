@@ -13,13 +13,7 @@ function getChimangos() {
       });
   });
 }
-
-var fondoHeader = document.getElementById("fondo-header");
 var random = Math.floor(Math.random() * 10);
-fondoHeader.style =
-  "background-image: url('assets/img/curved-images/curved" +
-  random +
-  ".jpg'); background-position-y: 50%;";
 
 var estados = [
   "Disponible",
