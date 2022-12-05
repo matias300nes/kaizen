@@ -19934,8 +19934,8 @@ fieldset:disabled .btn {
 }
 
 .avatar-md {
-  width: 60px !important;
-  height: 60px !important;
+  width: 50px !important;
+  height: 50px !important;
   font-size: 0.875rem;
 }
 
@@ -26873,6 +26873,10 @@ pre[class*="language-"] {
 
 .color-lucas {
   background-color: #219ebc !important;
+}
+
+.color-german {
+  background-color: #e63946 !important;
 }
 
 .color-martin {
