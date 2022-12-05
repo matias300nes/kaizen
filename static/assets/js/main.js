@@ -144,6 +144,7 @@
   }
 
   function sortSeLaCome() {
+    localStorage.removeItem("seLaCome");
     var resultado = getRandomInt(0, chimangos.length - 1);
     var todaySeLaCome = [chimangos[resultado].nombre, dayName];
     localStorage.setItem("seLaCome", todaySeLaCome);
