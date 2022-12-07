@@ -775,18 +775,18 @@
     </script>
 
     <script>
-      var memeImgSRC = [];
 
-      fetch("https://api.imgflip.com/get_memes")
+      async function getGif(){
+        await fetch("https://api.giphy.com/v1/gifs/random?api_key=oiFVKdADY5UDfVvjVk0leyN6i30o0ETf&tag=funny")
         .then((response) => response.json())
         .then((data) => {
-          var random = Math.floor(Math.random() * (100 - 0)) + 0;
           var memeImg = document.getElementById("meme-image");
           memeImg.style.backgroundImage =
-            "url(" + data.data.memes[random].url + ")";
-          (memeImgSRC = data.data), memes;
+            "url(" + data.data.images.downsized_medium.url + ")";
         });
+      }
 
+      getGif();
       var player;
 
       function onYouTubePlayerAPIReady() {
@@ -916,10 +916,7 @@
 
       var getMemeButton = document.getElementById("get-meme-button");
       getMemeButton.addEventListener("click", function () {
-        var random = Math.floor(Math.random() * (100 - 0)) + 0;
-        var memeImg = document.getElementById("meme-image");
-        memeImg.style.backgroundImage =
-          "url(" + memeImgSRC.memes[random].url + ")";
+        getGif();
       });
 
       // Inject YouTube API script
